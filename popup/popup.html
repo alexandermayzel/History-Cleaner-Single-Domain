@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>History Cleaner - Single Domain</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="app-header">
+        <img src="../icons/icon.svg" width="32" height="32" alt="">
+        <div>
+          <h1>History Cleaner - Single Domain</h1>
+          <p class="subtitle" data-i18n="subtitle">Clean this website's history</p>
+        </div>
+      </header>
+
+      <section class="site-card" aria-labelledby="site-label">
+        <h2 id="site-label" class="eyebrow" data-i18n="currentHost">Current host</h2>
+        <p id="hostname" class="hostname" data-i18n="hostLoading">Loading …</p>
+        <p class="hint" data-i18n="hostScope">Includes HTTP and HTTPS, all paths and ports on this host. Other domains and subdomains are kept.</p>
+      </section>
+
+      <form id="preview-form">
+        <p data-i18n="deleteScope">The entire browsing history for the displayed host will be deleted.</p>
+        <button id="preview-button" class="button button-primary" type="submit" data-i18n="previewButton" disabled>Preview</button>
+      </form>
+
+      <section id="preview-panel" class="notice preview-panel" aria-labelledby="preview-heading" hidden>
+        <h2 id="preview-heading" data-i18n="previewHeading">Preview</h2>
+        <p id="preview-summary" role="status" aria-live="polite" aria-atomic="true"></p>
+        <p id="delete-note" class="hint" data-i18n="deleteNote">Deleting removes all visits to these URLs from your history and cannot be undone here.</p>
+        <button id="clean-button" class="button button-danger" type="button" aria-describedby="delete-note" data-i18n="deleteButton" disabled>Delete</button>
+      </section>
+
+      <section id="job-panel" class="notice job-panel" aria-labelledby="job-heading" hidden>
+        <h2 id="job-heading" data-i18n="jobHeading">Cleanup</h2>
+        <p id="job-target" class="job-target"></p>
+        <progress id="job-progress" max="1" value="0" aria-label="Cleanup progress" data-i18n-aria-label="jobProgressLabel" hidden></progress>
+        <p id="job-summary"></p>
+        <p id="job-detail" class="hint"></p>
+      </section>
+      <p id="job-announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+
+      <p id="error" class="error" role="alert" aria-atomic="true" hidden></p>
+      <p class="footer-note" data-i18n="footerNote">Cookies, website data and bookmarks are kept.</p>
+      <footer id="addon-version" class="addon-version"></footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  --background: #f7f8fc;
+  --surface: #ffffff;
+  --text: #202638;
+  --muted: #596477;
+  --border: #dce2ec;
+  --accent: #365dd6;
+  --accent-hover: #254abd;
+  --accent-soft: #edf1ff;
+  --danger: #b22a43;
+  --danger-hover: #962039;
+  --error-background: #fff0f2;
+  --focus: #8a52dd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 400px;
+  /* A viewport-unit limit would clamp Firefox's initial popup size calculation. */
+  max-width: 100%;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+}
+
+main { padding: 18px; }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.app-header img { flex: none; }
+
+h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.35px;
+}
+
+h2 {
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+p { margin: 0; }
+
+.subtitle { margin-top: 2px; color: var(--muted); font-size: 12px; }
+
+.site-card {
+  padding: 13px 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.eyebrow {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.hostname {
+  margin-bottom: 7px;
+  font-size: 16px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.hint { color: var(--muted); font-size: 12px; }
+
+.button {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.button-primary { margin-top: 13px; background: var(--accent); color: #ffffff; }
+.button-primary:hover:enabled { background: var(--accent-hover); }
+.button-danger { margin-top: 12px; background: var(--danger); color: #ffffff; }
+.button-danger:hover:enabled { background: var(--danger-hover); }
+
+button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+button:disabled { cursor: default; opacity: 0.55; }
+
+.notice {
+  margin-top: 14px;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.preview-panel { background: var(--accent-soft); }
+.notice p + p { margin-top: 6px; }
+.job-target { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+
+progress {
+  display: block;
+  width: 100%;
+  height: 7px;
+  margin: 10px 0;
+  accent-color: var(--accent);
+}
+
+.error {
+  margin-top: 14px;
+  padding: 11px 12px;
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  background: var(--error-background);
+  color: var(--danger);
+  font-size: 12px;
+}
+
+.footer-note { margin-top: 16px; color: var(--muted); font-size: 11px; }
+.addon-version {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+[hidden] { display: none !important; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171b26;
+    --surface: #202636;
+    --text: #eff2fa;
+    --muted: #b3bdd0;
+    --border: #3b465d;
+    --accent: #496bdc;
+    --accent-hover: #365bce;
+    --accent-soft: #242f4e;
+    --danger: #c73b56;
+    --danger-hover: #ac2c46;
+    --error-background: #3c2430;
+    --focus: #ba96ff;
+  }
+
+  .error { color: #ffb7c3; }
+}
+
+@media (forced-colors: active) {
+  .button { border-color: ButtonText; }
+  button:disabled { color: GrayText; opacity: 1; }
+}

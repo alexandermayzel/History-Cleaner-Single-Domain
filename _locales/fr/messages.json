@@ -1,0 +1,222 @@
+{
+  "extensionDescription": {
+    "message": "Supprime tout l’historique de l’hôte exact de l’onglet actif, avec un aperçu avant la suppression."
+  },
+  "addonVersion": {
+    "message": "Version $VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+  },
+  "uiLanguage": {
+    "message": "fr",
+    "description": "Language code for the translated interface and fallback number formatting."
+  },
+  "subtitle": {
+    "message": "Nettoyer l’historique de ce site"
+  },
+  "currentHost": {
+    "message": "Hôte actuel"
+  },
+  "hostLoading": {
+    "message": "Chargement …"
+  },
+  "hostUnsupported": {
+    "message": "Aucun site web compatible"
+  },
+  "hostScope": {
+    "message": "Inclut HTTP et HTTPS, tous les chemins et tous les ports de cet hôte. L’historique des autres domaines et sous-domaines est conservé."
+  },
+  "deleteScope": {
+    "message": "Tout l’historique de navigation de l’hôte affiché sera supprimé."
+  },
+  "previewButton": {
+    "message": "Aperçu"
+  },
+  "previewLoading": {
+    "message": "Préparation de l’aperçu …"
+  },
+  "previewHeading": {
+    "message": "Aperçu"
+  },
+  "previewEmpty": {
+    "message": "Aucune URL correspondante dans l’historique."
+  },
+  "previewSummaryOne": {
+    "message": "$count$ URL peut être supprimée.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "previewSummaryOther": {
+    "message": "$count$ URL peuvent être supprimées.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1 234"
+      }
+    }
+  },
+  "deleteNote": {
+    "message": "La suppression efface de l’historique toutes les visites à ces URL et ne peut pas être annulée ici."
+  },
+  "deleteButton": {
+    "message": "Supprimer"
+  },
+  "deleteCountOne": {
+    "message": "Supprimer $count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "deleteCountOther": {
+    "message": "Supprimer $count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1 234"
+      }
+    }
+  },
+  "urlCountOne": {
+    "message": "$count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "urlCountOther": {
+    "message": "$count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1 234"
+      }
+    }
+  },
+  "jobHeading": {
+    "message": "Nettoyage"
+  },
+  "jobRunning": {
+    "message": "Nettoyage en cours …"
+  },
+  "jobWithErrors": {
+    "message": "Des erreurs sont survenues pendant le nettoyage"
+  },
+  "jobCompleted": {
+    "message": "Nettoyage terminé"
+  },
+  "jobProgressLabel": {
+    "message": "Progression du nettoyage"
+  },
+  "jobProgressSummary": {
+    "message": "URL vérifiées : $processed$ sur $total$ · Supprimées : $deleted$.",
+    "placeholders": {
+      "processed": {
+        "content": "$1",
+        "example": "100"
+      },
+      "total": {
+        "content": "$2",
+        "example": "1 234 URL"
+      },
+      "deleted": {
+        "content": "$3",
+        "example": "99"
+      }
+    }
+  },
+  "jobDeletedOne": {
+    "message": "$count$ URL supprimée.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "jobDeletedOther": {
+    "message": "$count$ URL supprimées.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1 234"
+      }
+    }
+  },
+  "jobSkippedOne": {
+    "message": "$count$ URL ignorée : elle n’existe plus ou ne remplit pas les conditions de suppression.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "jobSkippedOther": {
+    "message": "$count$ URL ignorées : elles n’existent plus ou ne remplissent pas les conditions de suppression.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "jobFailedOne": {
+    "message": "$count$ URL n’a pas pu être supprimée.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "jobFailedOther": {
+    "message": "$count$ URL n’ont pas pu être supprimées.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "jobMayClose": {
+    "message": "Vous pouvez fermer ce menu. Le nettoyage continue."
+  },
+  "jobAllProcessed": {
+    "message": "Toutes les URL prévues ont été traitées."
+  },
+  "footerNote": {
+    "message": "Les cookies, les données des sites et les marque-pages sont conservés."
+  },
+  "errorUnsupportedTab": {
+    "message": "Ouvrez un site web avec une adresse HTTP ou HTTPS. Le nettoyage n’est pas disponible pour cet onglet."
+  },
+  "errorTabChanged": {
+    "message": "Le site web de cet onglet a changé. Rouvrez le menu et créez un nouvel aperçu."
+  },
+  "errorBusy": {
+    "message": "Un nettoyage est déjà en cours. Veuillez attendre qu’il se termine."
+  },
+  "errorExpired": {
+    "message": "Cet aperçu a expiré. Créez un nouvel aperçu avant de supprimer."
+  },
+  "errorInvalidRequest": {
+    "message": "La demande n’a pas pu être traitée. Rouvrez le menu."
+  },
+  "errorReadFailed": {
+    "message": "L’historique n’a pas pu être lu intégralement. Réessayez."
+  },
+  "errorInterrupted": {
+    "message": "Le nettoyage a été interrompu. Les chiffres indiquent le dernier état connu. Créez un nouvel aperçu."
+  },
+  "errorInternal": {
+    "message": "L’action n’a pas pu être effectuée. Réessayez."
+  }
+}

@@ -1,0 +1,26 @@
+# Local working instructions and release helpers belong outside this repository
+AGENTS.md
+RELEASING.md
+scripts/
+package.json
+package-lock.json
+History-Cleaner-Single-Domain-Intern/
+
+# Locally generated packages and release preparation
+dist/
+artifacts/
+*.zip
+*.xpi
+
+# Mozilla signing output and development tools
+META-INF/
+web-ext-artifacts/
+node_modules/
+
+# OS, editor and test-runtime files
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+debug.log

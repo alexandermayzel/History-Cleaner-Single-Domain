@@ -1,0 +1,201 @@
+{
+  "extensionDescription": {
+    "message": "Удаляет всю историю посещений хоста текущей вкладки с предпросмотром перед удалением. Только точное совпадение имени хоста."
+  },
+  "addonVersion": {
+    "message": "Версия $VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+  },
+  "uiLanguage": {
+    "message": "ru",
+    "description": "Language code for the translated interface and fallback number formatting."
+  },
+  "subtitle": {
+    "message": "Очистить историю этого сайта"
+  },
+  "currentHost": {
+    "message": "Текущий хост"
+  },
+  "hostLoading": {
+    "message": "Загрузка …"
+  },
+  "hostUnsupported": {
+    "message": "Нет поддерживаемого сайта"
+  },
+  "hostScope": {
+    "message": "Включает HTTP и HTTPS, все пути и порты этого хоста. История других доменов и поддоменов сохраняется."
+  },
+  "deleteScope": {
+    "message": "Вся история посещений указанного хоста будет удалена."
+  },
+  "previewButton": {
+    "message": "Предпросмотр"
+  },
+  "previewLoading": {
+    "message": "Подготовка предпросмотра …"
+  },
+  "previewHeading": {
+    "message": "Предпросмотр"
+  },
+  "previewEmpty": {
+    "message": "Подходящих URL в истории не найдено."
+  },
+  "previewSummaryOne": {
+    "message": "Можно удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "previewSummaryFew": {
+    "message": "Можно удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "previewSummaryMany": {
+    "message": "Можно удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "5" } }
+  },
+  "previewSummaryOther": {
+    "message": "Можно удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+  },
+  "deleteNote": {
+    "message": "Из истории будут удалены все посещения этих URL. Отменить удаление здесь нельзя."
+  },
+  "deleteButton": {
+    "message": "Удалить"
+  },
+  "deleteCountOne": {
+    "message": "Удалить $count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "deleteCountFew": {
+    "message": "Удалить $count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "deleteCountMany": {
+    "message": "Удалить $count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "5" } }
+  },
+  "deleteCountOther": {
+    "message": "Удалить $count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+  },
+  "urlCountOne": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "urlCountFew": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "urlCountMany": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "5" } }
+  },
+  "urlCountOther": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+  },
+  "jobHeading": {
+    "message": "Очистка"
+  },
+  "jobRunning": {
+    "message": "Выполняется очистка …"
+  },
+  "jobWithErrors": {
+    "message": "При очистке возникли ошибки"
+  },
+  "jobCompleted": {
+    "message": "Очистка завершена"
+  },
+  "jobProgressLabel": {
+    "message": "Ход очистки"
+  },
+  "jobProgressSummary": {
+    "message": "Проверено: $processed$ из $total$ · Удалено: $deleted$.",
+    "placeholders": {
+      "processed": { "content": "$1", "example": "100" },
+      "total": { "content": "$2", "example": "1 234 URL" },
+      "deleted": { "content": "$3", "example": "99" }
+    }
+  },
+  "jobDeletedOne": {
+    "message": "Удалён $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobDeletedFew": {
+    "message": "Удалено $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobDeletedMany": {
+    "message": "Удалено $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "5" } }
+  },
+  "jobDeletedOther": {
+    "message": "Удалено $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+  },
+  "jobSkippedOne": {
+    "message": "Пропущен $count$ URL: запись уже отсутствует или не подходит для удаления.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobSkippedFew": {
+    "message": "Пропущено $count$ URL: записи уже отсутствуют или не подходят для удаления.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobSkippedMany": {
+    "message": "Пропущено $count$ URL: записи уже отсутствуют или не подходят для удаления.",
+    "placeholders": { "count": { "content": "$1", "example": "5" } }
+  },
+  "jobSkippedOther": {
+    "message": "Пропущено $count$ URL: записи уже отсутствуют или не подходят для удаления.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobFailedOne": {
+    "message": "Не удалось удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobFailedFew": {
+    "message": "Не удалось удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobFailedMany": {
+    "message": "Не удалось удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "5" } }
+  },
+  "jobFailedOther": {
+    "message": "Не удалось удалить $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobMayClose": {
+    "message": "Это меню можно закрыть. Очистка продолжится."
+  },
+  "jobAllProcessed": {
+    "message": "Все выбранные URL обработаны."
+  },
+  "footerNote": {
+    "message": "Файлы cookie, данные сайтов и закладки сохраняются."
+  },
+  "errorUnsupportedTab": {
+    "message": "Откройте сайт с адресом HTTP или HTTPS. Очистка недоступна для этой вкладки."
+  },
+  "errorTabChanged": {
+    "message": "Сайт в этой вкладке изменился. Откройте меню заново и повторите предпросмотр."
+  },
+  "errorBusy": {
+    "message": "Очистка уже выполняется. Дождитесь её завершения."
+  },
+  "errorExpired": {
+    "message": "Срок действия предпросмотра истёк. Повторите предпросмотр перед удалением."
+  },
+  "errorInvalidRequest": {
+    "message": "Не удалось обработать запрос. Откройте меню заново."
+  },
+  "errorReadFailed": {
+    "message": "Не удалось прочитать историю полностью. Попробуйте ещё раз."
+  },
+  "errorInterrupted": {
+    "message": "Очистка прервана. Счётчики показывают последнее известное состояние. Повторите предпросмотр."
+  },
+  "errorInternal": {
+    "message": "Не удалось завершить действие. Попробуйте ещё раз."
+  }
+}

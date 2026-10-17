@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "History Cleaner - Single Domain",
+  "version": "1.0.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "permissions": ["activeTab", "history"],
+  "action": {
+    "default_area": "menupanel",
+    "default_title": "History Cleaner - Single Domain",
+    "default_popup": "popup/popup.html",
+    "default_icon": { "16": "icons/icon.svg", "32": "icons/icon.svg" }
+  },
+  "icons": { "48": "icons/icon.svg", "96": "icons/icon.svg" },
+  "background": { "scripts": ["src/history-core.js", "src/background.js"] },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "history-cleaner-tab-only@local.addon",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  }
+}

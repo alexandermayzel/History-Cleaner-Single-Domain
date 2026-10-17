@@ -1,0 +1,153 @@
+{
+  "extensionDescription": {
+    "message": "Delete the entire browsing history for the exact host in the current tab, with a preview before deletion."
+  },
+  "addonVersion": {
+    "message": "Version $VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+  },
+  "uiLanguage": {
+    "message": "en",
+    "description": "Language code for the translated interface and fallback number formatting."
+  },
+  "subtitle": {
+    "message": "Clean this website's history"
+  },
+  "currentHost": {
+    "message": "Current host"
+  },
+  "hostLoading": {
+    "message": "Loading …"
+  },
+  "hostUnsupported": {
+    "message": "No supported website"
+  },
+  "hostScope": {
+    "message": "Includes HTTP and HTTPS, all paths and ports on this host. Other domains and subdomains are kept."
+  },
+  "deleteScope": {
+    "message": "The entire browsing history for the displayed host will be deleted."
+  },
+  "previewButton": {
+    "message": "Preview"
+  },
+  "previewLoading": {
+    "message": "Preparing preview …"
+  },
+  "previewHeading": {
+    "message": "Preview"
+  },
+  "previewEmpty": {
+    "message": "No matching URLs found in your history."
+  },
+  "previewSummaryOne": {
+    "message": "$count$ URL can be deleted.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "previewSummaryOther": {
+    "message": "$count$ URLs can be deleted.",
+    "placeholders": { "count": { "content": "$1", "example": "1,234" } }
+  },
+  "deleteNote": {
+    "message": "Deleting removes all visits to these URLs from your history and cannot be undone here."
+  },
+  "deleteButton": {
+    "message": "Delete"
+  },
+  "deleteCountOne": {
+    "message": "Delete $count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "deleteCountOther": {
+    "message": "Delete $count$ URLs",
+    "placeholders": { "count": { "content": "$1", "example": "1,234" } }
+  },
+  "urlCountOne": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "urlCountOther": {
+    "message": "$count$ URLs",
+    "placeholders": { "count": { "content": "$1", "example": "1,234" } }
+  },
+  "jobHeading": {
+    "message": "Cleanup"
+  },
+  "jobRunning": {
+    "message": "Cleanup in progress …"
+  },
+  "jobWithErrors": {
+    "message": "Cleanup encountered errors"
+  },
+  "jobCompleted": {
+    "message": "Cleanup complete"
+  },
+  "jobProgressLabel": {
+    "message": "Cleanup progress"
+  },
+  "jobProgressSummary": {
+    "message": "$processed$ of $total$ checked · $deleted$ deleted.",
+    "placeholders": {
+      "processed": { "content": "$1", "example": "100" },
+      "total": { "content": "$2", "example": "1,234 URLs" },
+      "deleted": { "content": "$3", "example": "99" }
+    }
+  },
+  "jobDeletedOne": {
+    "message": "$count$ URL deleted.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobDeletedOther": {
+    "message": "$count$ URLs deleted.",
+    "placeholders": { "count": { "content": "$1", "example": "1,234" } }
+  },
+  "jobSkippedOne": {
+    "message": "$count$ URL skipped: no longer present or not eligible for deletion.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobSkippedOther": {
+    "message": "$count$ URLs skipped: no longer present or not eligible for deletion.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobFailedOne": {
+    "message": "$count$ URL could not be deleted.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobFailedOther": {
+    "message": "$count$ URLs could not be deleted.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobMayClose": {
+    "message": "You can close this menu. Cleanup will continue."
+  },
+  "jobAllProcessed": {
+    "message": "All selected URLs have been processed."
+  },
+  "footerNote": {
+    "message": "Cookies, website data and bookmarks are kept."
+  },
+  "errorUnsupportedTab": {
+    "message": "Open a website with an HTTP or HTTPS address. Cleanup is not available for this tab."
+  },
+  "errorTabChanged": {
+    "message": "The website in this tab has changed. Reopen the menu and create a new preview."
+  },
+  "errorBusy": {
+    "message": "A cleanup is already running. Please wait for it to finish."
+  },
+  "errorExpired": {
+    "message": "This preview has expired. Create a new preview before deleting."
+  },
+  "errorInvalidRequest": {
+    "message": "The request could not be processed. Reopen the menu."
+  },
+  "errorReadFailed": {
+    "message": "Your history could not be read completely. Please try again."
+  },
+  "errorInterrupted": {
+    "message": "Cleanup was interrupted. The counts show the last known state. Create a new preview."
+  },
+  "errorInternal": {
+    "message": "The action could not be completed. Please try again."
+  }
+}

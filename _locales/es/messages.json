@@ -1,0 +1,222 @@
+{
+  "extensionDescription": {
+    "message": "Elimina todo el historial del host exacto de la pestaña actual, con una vista previa antes de eliminarlo."
+  },
+  "addonVersion": {
+    "message": "Versión $VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+  },
+  "uiLanguage": {
+    "message": "es",
+    "description": "Language code for the translated interface and fallback number formatting."
+  },
+  "subtitle": {
+    "message": "Borra el historial de este sitio web"
+  },
+  "currentHost": {
+    "message": "Host actual"
+  },
+  "hostLoading": {
+    "message": "Cargando …"
+  },
+  "hostUnsupported": {
+    "message": "No hay un sitio web compatible"
+  },
+  "hostScope": {
+    "message": "Incluye HTTP y HTTPS, todas las rutas y todos los puertos de este host. Se conserva el historial de otros dominios y subdominios."
+  },
+  "deleteScope": {
+    "message": "Se eliminará todo el historial de navegación del host mostrado."
+  },
+  "previewButton": {
+    "message": "Vista previa"
+  },
+  "previewLoading": {
+    "message": "Preparando la vista previa …"
+  },
+  "previewHeading": {
+    "message": "Vista previa"
+  },
+  "previewEmpty": {
+    "message": "No se encontraron URL coincidentes en el historial."
+  },
+  "previewSummaryOne": {
+    "message": "Se puede eliminar $count$ URL.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "previewSummaryOther": {
+    "message": "Se pueden eliminar $count$ URL.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1234"
+      }
+    }
+  },
+  "deleteNote": {
+    "message": "La eliminación borra del historial todas las visitas a estas URL y no se puede deshacer desde aquí."
+  },
+  "deleteButton": {
+    "message": "Eliminar"
+  },
+  "deleteCountOne": {
+    "message": "Eliminar $count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "deleteCountOther": {
+    "message": "Eliminar $count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1234"
+      }
+    }
+  },
+  "urlCountOne": {
+    "message": "$count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "urlCountOther": {
+    "message": "$count$ URL",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1234"
+      }
+    }
+  },
+  "jobHeading": {
+    "message": "Limpieza"
+  },
+  "jobRunning": {
+    "message": "Limpieza en curso …"
+  },
+  "jobWithErrors": {
+    "message": "Se produjeron errores durante la limpieza"
+  },
+  "jobCompleted": {
+    "message": "Limpieza completada"
+  },
+  "jobProgressLabel": {
+    "message": "Progreso de la limpieza"
+  },
+  "jobProgressSummary": {
+    "message": "Revisadas: $processed$ de $total$ · Eliminadas: $deleted$.",
+    "placeholders": {
+      "processed": {
+        "content": "$1",
+        "example": "100"
+      },
+      "total": {
+        "content": "$2",
+        "example": "1234 URL"
+      },
+      "deleted": {
+        "content": "$3",
+        "example": "99"
+      }
+    }
+  },
+  "jobDeletedOne": {
+    "message": "$count$ URL eliminada.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "jobDeletedOther": {
+    "message": "$count$ URL eliminadas.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1234"
+      }
+    }
+  },
+  "jobSkippedOne": {
+    "message": "$count$ URL omitida: ya no existe o no cumple los requisitos para eliminarse.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "jobSkippedOther": {
+    "message": "$count$ URL omitidas: ya no existen o no cumplen los requisitos para eliminarse.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "jobFailedOne": {
+    "message": "No se pudo eliminar $count$ URL.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "jobFailedOther": {
+    "message": "No se pudieron eliminar $count$ URL.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "jobMayClose": {
+    "message": "Puedes cerrar este menú. La limpieza continuará."
+  },
+  "jobAllProcessed": {
+    "message": "Se han procesado todas las URL previstas."
+  },
+  "footerNote": {
+    "message": "Se conservan las cookies, los datos de los sitios web y los marcadores."
+  },
+  "errorUnsupportedTab": {
+    "message": "Abre un sitio web con una dirección HTTP o HTTPS. No se puede realizar la limpieza en esta pestaña."
+  },
+  "errorTabChanged": {
+    "message": "El sitio web de esta pestaña ha cambiado. Vuelve a abrir el menú y genera una nueva vista previa."
+  },
+  "errorBusy": {
+    "message": "Ya hay una limpieza en curso. Espera a que termine."
+  },
+  "errorExpired": {
+    "message": "Esta vista previa ha caducado. Genera una nueva antes de eliminar."
+  },
+  "errorInvalidRequest": {
+    "message": "No se pudo procesar la solicitud. Vuelve a abrir el menú."
+  },
+  "errorReadFailed": {
+    "message": "No se pudo leer el historial completo. Vuelve a intentarlo."
+  },
+  "errorInterrupted": {
+    "message": "La limpieza se ha interrumpido. Las cifras muestran el último estado conocido. Genera una nueva vista previa."
+  },
+  "errorInternal": {
+    "message": "No se pudo completar la acción. Vuelve a intentarlo."
+  }
+}

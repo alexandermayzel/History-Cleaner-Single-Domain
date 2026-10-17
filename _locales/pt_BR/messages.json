@@ -1,0 +1,153 @@
+{
+  "extensionDescription": {
+    "message": "Exclui todo o histórico de navegação do host exato da aba atual, com prévia antes da exclusão."
+  },
+  "addonVersion": {
+    "message": "Versão $VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+  },
+  "uiLanguage": {
+    "message": "pt-BR",
+    "description": "Language code for the translated interface and fallback number formatting."
+  },
+  "subtitle": {
+    "message": "Limpar o histórico deste site"
+  },
+  "currentHost": {
+    "message": "Host atual"
+  },
+  "hostLoading": {
+    "message": "Carregando …"
+  },
+  "hostUnsupported": {
+    "message": "Nenhum site compatível"
+  },
+  "hostScope": {
+    "message": "Inclui HTTP e HTTPS, todos os caminhos e portas deste host. Outros domínios e subdomínios são preservados."
+  },
+  "deleteScope": {
+    "message": "Todo o histórico de navegação do host exibido será excluído."
+  },
+  "previewButton": {
+    "message": "Gerar prévia"
+  },
+  "previewLoading": {
+    "message": "Preparando prévia …"
+  },
+  "previewHeading": {
+    "message": "Prévia"
+  },
+  "previewEmpty": {
+    "message": "Nenhuma URL correspondente foi encontrada no histórico."
+  },
+  "previewSummaryOne": {
+    "message": "$count$ URL pode ser excluída.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "previewSummaryOther": {
+    "message": "$count$ URLs podem ser excluídas.",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "deleteNote": {
+    "message": "A exclusão remove todas as visitas a essas URLs do histórico e não pode ser desfeita aqui."
+  },
+  "deleteButton": {
+    "message": "Excluir"
+  },
+  "deleteCountOne": {
+    "message": "Excluir $count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "deleteCountOther": {
+    "message": "Excluir $count$ URLs",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "urlCountOne": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "urlCountOther": {
+    "message": "$count$ URLs",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "jobHeading": {
+    "message": "Limpeza"
+  },
+  "jobRunning": {
+    "message": "Limpeza em andamento …"
+  },
+  "jobWithErrors": {
+    "message": "Ocorreram erros na limpeza"
+  },
+  "jobCompleted": {
+    "message": "Limpeza concluída"
+  },
+  "jobProgressLabel": {
+    "message": "Progresso da limpeza"
+  },
+  "jobProgressSummary": {
+    "message": "Verificadas: $processed$ de $total$ · Excluídas: $deleted$.",
+    "placeholders": {
+      "processed": { "content": "$1", "example": "100" },
+      "total": { "content": "$2", "example": "1.234 URLs" },
+      "deleted": { "content": "$3", "example": "99" }
+    }
+  },
+  "jobDeletedOne": {
+    "message": "$count$ URL excluída.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobDeletedOther": {
+    "message": "$count$ URLs excluídas.",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "jobSkippedOne": {
+    "message": "$count$ URL ignorada: não está mais no histórico ou não atende aos critérios de exclusão.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobSkippedOther": {
+    "message": "$count$ URLs ignoradas: não estão mais no histórico ou não atendem aos critérios de exclusão.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobFailedOne": {
+    "message": "Não foi possível excluir $count$ URL.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobFailedOther": {
+    "message": "Não foi possível excluir $count$ URLs.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobMayClose": {
+    "message": "Você pode fechar este menu. A limpeza continuará."
+  },
+  "jobAllProcessed": {
+    "message": "Todas as URLs selecionadas foram processadas."
+  },
+  "footerNote": {
+    "message": "Cookies, dados dos sites e favoritos são preservados."
+  },
+  "errorUnsupportedTab": {
+    "message": "Abra um site com endereço HTTP ou HTTPS. A limpeza não está disponível nesta aba."
+  },
+  "errorTabChanged": {
+    "message": "O site nesta aba mudou. Abra o menu novamente e gere uma nova prévia."
+  },
+  "errorBusy": {
+    "message": "Uma limpeza já está em andamento. Aguarde a conclusão."
+  },
+  "errorExpired": {
+    "message": "Esta prévia expirou. Gere uma nova prévia antes de excluir."
+  },
+  "errorInvalidRequest": {
+    "message": "Não foi possível processar a solicitação. Abra o menu novamente."
+  },
+  "errorReadFailed": {
+    "message": "Não foi possível ler todo o histórico. Tente novamente."
+  },
+  "errorInterrupted": {
+    "message": "A limpeza foi interrompida. As contagens mostram o último estado conhecido. Gere uma nova prévia."
+  },
+  "errorInternal": {
+    "message": "Não foi possível concluir a ação. Tente novamente."
+  }
+}

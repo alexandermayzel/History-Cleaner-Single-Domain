@@ -1,0 +1,153 @@
+{
+  "extensionDescription": {
+    "message": "Löscht den gesamten Verlauf für den exakten Host im aktuellen Tab, mit Vorschau vor dem Löschen."
+  },
+  "addonVersion": {
+    "message": "Version $VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+  },
+  "uiLanguage": {
+    "message": "de",
+    "description": "Language code for the translated interface and fallback number formatting."
+  },
+  "subtitle": {
+    "message": "Verlauf dieser Website bereinigen"
+  },
+  "currentHost": {
+    "message": "Aktueller Host"
+  },
+  "hostLoading": {
+    "message": "Wird ermittelt …"
+  },
+  "hostUnsupported": {
+    "message": "Keine unterstützte Website"
+  },
+  "hostScope": {
+    "message": "Umfasst HTTP und HTTPS, alle Pfade und Ports dieses Hosts. Andere Domains und Subdomains bleiben erhalten."
+  },
+  "deleteScope": {
+    "message": "Der komplette Verlauf des angezeigten Hosts wird gelöscht."
+  },
+  "previewButton": {
+    "message": "Vorschau ermitteln"
+  },
+  "previewLoading": {
+    "message": "Vorschau wird ermittelt …"
+  },
+  "previewHeading": {
+    "message": "Vorschau"
+  },
+  "previewEmpty": {
+    "message": "Keine passenden URLs im Verlauf gefunden."
+  },
+  "previewSummaryOne": {
+    "message": "$count$ URL kann gelöscht werden.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "previewSummaryOther": {
+    "message": "$count$ URLs können gelöscht werden.",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "deleteNote": {
+    "message": "Die Löschung entfernt alle Besuche dieser URLs aus dem Verlauf und lässt sich hier nicht rückgängig machen."
+  },
+  "deleteButton": {
+    "message": "Löschen"
+  },
+  "deleteCountOne": {
+    "message": "$count$ URL löschen",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "deleteCountOther": {
+    "message": "$count$ URLs löschen",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "urlCountOne": {
+    "message": "$count$ URL",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "urlCountOther": {
+    "message": "$count$ URLs",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "jobHeading": {
+    "message": "Bereinigung"
+  },
+  "jobRunning": {
+    "message": "Bereinigung läuft …"
+  },
+  "jobWithErrors": {
+    "message": "Bereinigung mit Fehlern"
+  },
+  "jobCompleted": {
+    "message": "Bereinigung abgeschlossen"
+  },
+  "jobProgressLabel": {
+    "message": "Fortschritt der Bereinigung"
+  },
+  "jobProgressSummary": {
+    "message": "$processed$ von $total$ geprüft · $deleted$ gelöscht.",
+    "placeholders": {
+      "processed": { "content": "$1", "example": "100" },
+      "total": { "content": "$2", "example": "1.234 URLs" },
+      "deleted": { "content": "$3", "example": "99" }
+    }
+  },
+  "jobDeletedOne": {
+    "message": "$count$ URL gelöscht.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobDeletedOther": {
+    "message": "$count$ URLs gelöscht.",
+    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
+  },
+  "jobSkippedOne": {
+    "message": "$count$ URL übersprungen: nicht mehr vorhanden oder für die Löschung ungeeignet.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobSkippedOther": {
+    "message": "$count$ URLs übersprungen: nicht mehr vorhanden oder für die Löschung ungeeignet.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobFailedOne": {
+    "message": "$count$ URL konnte nicht gelöscht werden.",
+    "placeholders": { "count": { "content": "$1", "example": "1" } }
+  },
+  "jobFailedOther": {
+    "message": "$count$ URLs konnten nicht gelöscht werden.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "jobMayClose": {
+    "message": "Du kannst dieses Menü schließen. Die Bereinigung läuft weiter."
+  },
+  "jobAllProcessed": {
+    "message": "Alle vorgesehenen URLs wurden bearbeitet."
+  },
+  "footerNote": {
+    "message": "Cookies, Website-Daten und Lesezeichen bleiben erhalten."
+  },
+  "errorUnsupportedTab": {
+    "message": "Öffne eine Website mit einer HTTP- oder HTTPS-Adresse. Für diesen Tab ist keine Bereinigung möglich."
+  },
+  "errorTabChanged": {
+    "message": "Die Website im Tab hat sich geändert. Öffne das Menü erneut und erstelle eine neue Vorschau."
+  },
+  "errorBusy": {
+    "message": "Eine Bereinigung läuft bereits. Warte bitte, bis sie abgeschlossen ist."
+  },
+  "errorExpired": {
+    "message": "Diese Vorschau ist abgelaufen. Ermittle vor dem Löschen eine neue Vorschau."
+  },
+  "errorInvalidRequest": {
+    "message": "Die Anfrage konnte nicht verarbeitet werden. Öffne das Menü erneut."
+  },
+  "errorReadFailed": {
+    "message": "Der Verlauf konnte nicht vollständig gelesen werden. Versuche es erneut."
+  },
+  "errorInterrupted": {
+    "message": "Die Bereinigung wurde unterbrochen. Die Zahlen zeigen den zuletzt bekannten Stand. Ermittle eine neue Vorschau."
+  },
+  "errorInternal": {
+    "message": "Die Aktion konnte nicht abgeschlossen werden. Versuche es erneut."
+  }
+}
