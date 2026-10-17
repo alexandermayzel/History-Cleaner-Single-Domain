@@ -63,7 +63,7 @@ in its confirmation panel after a regular installation.
 
 | Requirement | Supported |
 |---|---|
-| Browser | Firefox Desktop **140 or newer** |
+| Browser | Firefox Desktop **142 or newer** |
 | Current page | An HTTP or HTTPS website |
 | Automated tests | Node.js **22 or newer** |
 

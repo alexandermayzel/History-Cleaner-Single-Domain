@@ -2,7 +2,7 @@
 
 ## [1.0.0] — Unreleased
 
-Initial release for Firefox Desktop 140 and later.
+Initial release for Firefox Desktop 142 and later.
 
 - Preview and delete history for the active tab's exact host. Other domains and
   subdomains are preserved.

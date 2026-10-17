@@ -26,7 +26,7 @@ this version's release notes and reviewer notes.
 | Requested AMO URL slug | `history-cleaner-single-domain` — confirm during submission |
 | Version | 1.0.0 |
 | Default listing language | English (US); add German, Spanish, French, Portuguese (Brazil) and Russian |
-| Compatibility | Firefox Desktop 140.0 and later; do not select Android |
+| Compatibility | Firefox Desktop 142.0 and later; do not select Android |
 | License | MIT License; copyright 2026 Alexander Mayzel |
 | Payment, additional hardware or services | None required |
 | Data collection | None; manifest declares `required: ["none"]` |
@@ -73,7 +73,7 @@ Initial release
 
 Cleanup applies throughout the Firefox profile, including other tabs and containers. There is no age filter or undo. New URLs first visited after the preview are excluded. Cookies, site storage, passwords, bookmarks and downloaded files are kept.
 
-Requires Firefox Desktop 140 or later. MIT License.
+Requires Firefox Desktop 142 or later. MIT License.
 ```
 
 ### Deutsch
@@ -88,7 +88,7 @@ Erste Veröffentlichung
 
 Die Bereinigung gilt im gesamten Firefox-Profil, auch für andere Tabs und Container. Es gibt keinen Altersfilter und keine Rückgängig-Funktion. Neue URLs, die erst nach der Vorschau besucht werden, sind ausgeschlossen. Cookies, Website-Speicher, Passwörter, Lesezeichen und heruntergeladene Dateien bleiben erhalten.
 
-Benötigt Firefox Desktop ab Version 140. MIT-Lizenz.
+Benötigt Firefox Desktop ab Version 142. MIT-Lizenz.
 ```
 
 ## Notes to reviewer
@@ -99,7 +99,7 @@ English, one field, plain text; kept below 3,000 characters.
 Deletes history only for the exact hostname selected by the active HTTP(S) tab. A toolbar preview and a separate delete button are required.
 
 RELEASE
-First release, 1.0.0. Firefox Desktop 140+. UI: German, English, Spanish, French, Brazilian Portuguese and Russian; English fallback. Localized numbers and plural forms. No account, external service or special hardware is required.
+First release, 1.0.0. Firefox Desktop 142+ only; Android is not supported. UI: German, English, Spanish, French, Brazilian Portuguese and Russian; English fallback. No account, external service or special hardware is required.
 
 SOURCE
 ZIP contains original readable source, archived unchanged. No compilation, bundling, minification or other build step. No third-party libraries, remote code, eval() or new Function(). MIT License, copyright 2026 Alexander Mayzel.
@@ -124,10 +124,27 @@ Use a disposable Firefox profile with history enabled. Visit multiple paths on e
 
 ## Package verification
 
-Prepared package: **19,450 bytes**, 14 files, SHA-256:
+### AMO validation status
+
+On 2026-10-17, the owner reported an Android compatibility warning for the
+previous package with a minimum Firefox version of 140. The current package
+sets `strict_min_version` to `142.0`, meeting the version required by that check
+for `data_collection_permissions`. It still targets Firefox Desktop only:
+`gecko_android` is absent and `required: ["none"]` is unchanged.
+
+The rebuilt ZIP has not yet been revalidated by AMO. Upload it and check the
+complete validation result before completing the submission. The earlier warning
+does not describe the current package's minimum version.
+
+References: [Mozilla data-consent documentation](https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/)
+and [MDN platform settings](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#firefox_gecko_properties).
+
+### Prepared archive
+
+Prepared package: **19,451 bytes**, 14 files, SHA-256:
 
 ```text
-8F945A71E0815A1E2C4F392DD2D7AD51F7FCC425B5604B00EB36F9F6349830A6
+89C02AEC2E0A0DE95364C29AA0ADF1B1D2E975C43E0E6E816C6E9CF4F16F57E4
 ```
 
 `manifest.json` is the only source of the extension version. To create the upload
@@ -195,9 +212,9 @@ Before submitting:
 - [ ] Check screen-reader announcements for progress, failed/skipped URLs and
       interrupted cleanup.
 - [ ] Check the minimum supported Firefox version and the intended desktop platforms.
-- [ ] Upload the ZIP through the new-add-on workflow and review every AMO
-      validation error or warning. Neither AMO validation nor `web-ext lint`
-      has been run during this preparation.
+- [ ] Upload the rebuilt ZIP with Firefox minimum version 142.0 and review the
+      complete AMO validation result, including the earlier Android warning.
+      Revalidation is pending; `web-ext lint` has not been run locally.
 - [ ] Fill in all six listing languages from the external description file; choose categories
       and optionally add screenshots without private browsing data.
 - [ ] Paste release notes for English and German, and the English reviewer notes.
