@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Удаляет всю историю посещений хоста текущей вкладки с предпросмотром перед удалением. Только точное совпадение имени хоста."
+    "message": "Удаляет историю домена текущей вкладки с предпросмотром. История других доменов и поддоменов сохраняется."
   },
   "addonVersion": {
     "message": "Версия $VERSION$",
-    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+    "placeholders": { "version": { "content": "$1", "example": "1.0.1" } }
   },
   "uiLanguage": {
     "message": "ru",
@@ -14,7 +14,7 @@
     "message": "Очистить историю этого сайта"
   },
   "currentHost": {
-    "message": "Текущий хост"
+    "message": "Текущий домен"
   },
   "hostLoading": {
     "message": "Загрузка …"
@@ -23,10 +23,10 @@
     "message": "Нет поддерживаемого сайта"
   },
   "hostScope": {
-    "message": "Включает HTTP и HTTPS, все пути и порты этого хоста. История других доменов и поддоменов сохраняется."
+    "message": "Включает HTTP и HTTPS, все пути и порты этого домена. История других доменов и поддоменов сохраняется."
   },
   "deleteScope": {
-    "message": "Вся история посещений указанного хоста будет удалена."
+    "message": "Удалите историю посещений домена, указанного выше."
   },
   "previewButton": {
     "message": "Предпросмотр"
@@ -38,61 +38,71 @@
     "message": "Предпросмотр"
   },
   "previewEmpty": {
-    "message": "Подходящих URL в истории не найдено."
+    "message": "В истории нет записей для домена «$domain$».",
+    "placeholders": { "domain": { "content": "$1", "example": "www.example.com" } }
   },
   "previewSummaryOne": {
-    "message": "Можно удалить $count$ URL.",
-    "placeholders": { "count": { "content": "$1", "example": "1" } }
+    "message": "Будет удалена $count$ запись домена «$domain$». Это действие нельзя отменить.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "previewSummaryFew": {
-    "message": "Можно удалить $count$ URL.",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "message": "Будут удалены $count$ записи домена «$domain$». Это действие нельзя отменить.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "2" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "previewSummaryMany": {
-    "message": "Можно удалить $count$ URL.",
-    "placeholders": { "count": { "content": "$1", "example": "5" } }
+    "message": "Будет удалено $count$ записей домена «$domain$». Это действие нельзя отменить.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "5" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "previewSummaryOther": {
-    "message": "Можно удалить $count$ URL.",
-    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
-  },
-  "deleteNote": {
-    "message": "Из истории будут удалены все посещения этих URL. Отменить удаление здесь нельзя."
+    "message": "Будет удалено $count$ записи домена «$domain$». Это действие нельзя отменить.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1,5" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "deleteButton": {
     "message": "Удалить"
   },
   "deleteCountOne": {
-    "message": "Удалить $count$ URL",
+    "message": "Удалить $count$ запись",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "deleteCountFew": {
-    "message": "Удалить $count$ URL",
+    "message": "Удалить $count$ записи",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "deleteCountMany": {
-    "message": "Удалить $count$ URL",
+    "message": "Удалить $count$ записей",
     "placeholders": { "count": { "content": "$1", "example": "5" } }
   },
   "deleteCountOther": {
-    "message": "Удалить $count$ URL",
-    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+    "message": "Удалить $count$ записи",
+    "placeholders": { "count": { "content": "$1", "example": "1,5" } }
   },
   "urlCountOne": {
-    "message": "$count$ URL",
+    "message": "$count$ запись",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "urlCountFew": {
-    "message": "$count$ URL",
+    "message": "$count$ записи",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "urlCountMany": {
-    "message": "$count$ URL",
+    "message": "$count$ записей",
     "placeholders": { "count": { "content": "$1", "example": "5" } }
   },
   "urlCountOther": {
-    "message": "$count$ URL",
-    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+    "message": "$count$ записи",
+    "placeholders": { "count": { "content": "$1", "example": "1,5" } }
   },
   "jobHeading": {
     "message": "Очистка"
@@ -110,66 +120,66 @@
     "message": "Ход очистки"
   },
   "jobProgressSummary": {
-    "message": "Проверено: $processed$ из $total$ · Удалено: $deleted$.",
+    "message": "Проверено: $processed$ / $total$ · Удалено: $deleted$.",
     "placeholders": {
       "processed": { "content": "$1", "example": "100" },
-      "total": { "content": "$2", "example": "1 234 URL" },
+      "total": { "content": "$2", "example": "1 234 записи" },
       "deleted": { "content": "$3", "example": "99" }
     }
   },
   "jobDeletedOne": {
-    "message": "Удалён $count$ URL.",
+    "message": "Удалена $count$ запись.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobDeletedFew": {
-    "message": "Удалено $count$ URL.",
+    "message": "Удалены $count$ записи.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobDeletedMany": {
-    "message": "Удалено $count$ URL.",
+    "message": "Удалено $count$ записей.",
     "placeholders": { "count": { "content": "$1", "example": "5" } }
   },
   "jobDeletedOther": {
-    "message": "Удалено $count$ URL.",
-    "placeholders": { "count": { "content": "$1", "example": "1 234" } }
+    "message": "Удалено $count$ записи.",
+    "placeholders": { "count": { "content": "$1", "example": "1,5" } }
   },
   "jobSkippedOne": {
-    "message": "Пропущен $count$ URL: запись уже отсутствует или не подходит для удаления.",
+    "message": "Пропущена $count$ запись: она уже отсутствует или не подходит для удаления.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobSkippedFew": {
-    "message": "Пропущено $count$ URL: записи уже отсутствуют или не подходят для удаления.",
+    "message": "Пропущены $count$ записи: они уже отсутствуют или не подходят для удаления.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobSkippedMany": {
-    "message": "Пропущено $count$ URL: записи уже отсутствуют или не подходят для удаления.",
+    "message": "Пропущено $count$ записей: они уже отсутствуют или не подходят для удаления.",
     "placeholders": { "count": { "content": "$1", "example": "5" } }
   },
   "jobSkippedOther": {
-    "message": "Пропущено $count$ URL: записи уже отсутствуют или не подходят для удаления.",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "message": "Пропущено $count$ записи: они уже отсутствуют или не подходят для удаления.",
+    "placeholders": { "count": { "content": "$1", "example": "1,5" } }
   },
   "jobFailedOne": {
-    "message": "Не удалось удалить $count$ URL.",
+    "message": "Не удалось удалить $count$ запись.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobFailedFew": {
-    "message": "Не удалось удалить $count$ URL.",
+    "message": "Не удалось удалить $count$ записи.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobFailedMany": {
-    "message": "Не удалось удалить $count$ URL.",
+    "message": "Не удалось удалить $count$ записей.",
     "placeholders": { "count": { "content": "$1", "example": "5" } }
   },
   "jobFailedOther": {
-    "message": "Не удалось удалить $count$ URL.",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "message": "Не удалось удалить $count$ записи.",
+    "placeholders": { "count": { "content": "$1", "example": "1,5" } }
   },
   "jobMayClose": {
     "message": "Это меню можно закрыть. Очистка продолжится."
   },
   "jobAllProcessed": {
-    "message": "Все выбранные URL обработаны."
+    "message": "Все записи из предпросмотра обработаны."
   },
   "footerNote": {
     "message": "Файлы cookie, данные сайтов и закладки сохраняются."

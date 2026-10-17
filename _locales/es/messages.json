@@ -1,20 +1,20 @@
 {
   "extensionDescription": {
-    "message": "Elimina todo el historial del host exacto de la pestaña actual, con una vista previa antes de eliminarlo."
+    "message": "Elimina el historial del dominio de la pestaña actual, con vista previa. Conserva otros dominios y subdominios."
   },
   "addonVersion": {
     "message": "Versión $VERSION$",
-    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+    "placeholders": { "version": { "content": "$1", "example": "1.0.1" } }
   },
   "uiLanguage": {
     "message": "es",
     "description": "Language code for the translated interface and fallback number formatting."
   },
   "subtitle": {
-    "message": "Borra el historial de este sitio web"
+    "message": "Limpia el historial de este sitio web"
   },
   "currentHost": {
-    "message": "Host actual"
+    "message": "Dominio actual"
   },
   "hostLoading": {
     "message": "Cargando …"
@@ -23,10 +23,10 @@
     "message": "No hay un sitio web compatible"
   },
   "hostScope": {
-    "message": "Incluye HTTP y HTTPS, todas las rutas y todos los puertos de este host. Se conserva el historial de otros dominios y subdominios."
+    "message": "Incluye HTTP y HTTPS, todas las rutas y todos los puertos de este dominio. Se conserva el historial de otros dominios y subdominios."
   },
   "deleteScope": {
-    "message": "Se eliminará todo el historial de navegación del host mostrado."
+    "message": "Elimina el historial de navegación del dominio que se muestra arriba."
   },
   "previewButton": {
     "message": "Vista previa"
@@ -38,34 +38,28 @@
     "message": "Vista previa"
   },
   "previewEmpty": {
-    "message": "No se encontraron URL coincidentes en el historial."
+    "message": "No se encontraron entradas en el historial para «$domain$».",
+    "placeholders": { "domain": { "content": "$1", "example": "www.example.com" } }
   },
   "previewSummaryOne": {
-    "message": "Se puede eliminar $count$ URL.",
+    "message": "Se eliminará $count$ entrada de «$domain$». Esta acción no se puede deshacer.",
     "placeholders": {
-      "count": {
-        "content": "$1",
-        "example": "1"
-      }
+      "count": { "content": "$1", "example": "1" },
+      "domain": { "content": "$2", "example": "www.example.com" }
     }
   },
   "previewSummaryOther": {
-    "message": "Se pueden eliminar $count$ URL.",
+    "message": "Se eliminarán $count$ entradas de «$domain$». Esta acción no se puede deshacer.",
     "placeholders": {
-      "count": {
-        "content": "$1",
-        "example": "1234"
-      }
+      "count": { "content": "$1", "example": "1234" },
+      "domain": { "content": "$2", "example": "www.example.com" }
     }
-  },
-  "deleteNote": {
-    "message": "La eliminación borra del historial todas las visitas a estas URL y no se puede deshacer desde aquí."
   },
   "deleteButton": {
     "message": "Eliminar"
   },
   "deleteCountOne": {
-    "message": "Eliminar $count$ URL",
+    "message": "Eliminar $count$ entrada",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -74,7 +68,7 @@
     }
   },
   "deleteCountOther": {
-    "message": "Eliminar $count$ URL",
+    "message": "Eliminar $count$ entradas",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -83,7 +77,7 @@
     }
   },
   "urlCountOne": {
-    "message": "$count$ URL",
+    "message": "$count$ entrada",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -92,7 +86,7 @@
     }
   },
   "urlCountOther": {
-    "message": "$count$ URL",
+    "message": "$count$ entradas",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -124,7 +118,7 @@
       },
       "total": {
         "content": "$2",
-        "example": "1234 URL"
+        "example": "1234 entradas"
       },
       "deleted": {
         "content": "$3",
@@ -133,7 +127,7 @@
     }
   },
   "jobDeletedOne": {
-    "message": "$count$ URL eliminada.",
+    "message": "$count$ entrada eliminada.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -142,7 +136,7 @@
     }
   },
   "jobDeletedOther": {
-    "message": "$count$ URL eliminadas.",
+    "message": "$count$ entradas eliminadas.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -151,7 +145,7 @@
     }
   },
   "jobSkippedOne": {
-    "message": "$count$ URL omitida: ya no existe o no cumple los requisitos para eliminarse.",
+    "message": "$count$ entrada omitida: ya no existe o no cumple los requisitos para eliminarse.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -160,7 +154,7 @@
     }
   },
   "jobSkippedOther": {
-    "message": "$count$ URL omitidas: ya no existen o no cumplen los requisitos para eliminarse.",
+    "message": "$count$ entradas omitidas: ya no existen o no cumplen los requisitos para eliminarse.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -169,7 +163,7 @@
     }
   },
   "jobFailedOne": {
-    "message": "No se pudo eliminar $count$ URL.",
+    "message": "No se pudo eliminar $count$ entrada.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -178,7 +172,7 @@
     }
   },
   "jobFailedOther": {
-    "message": "No se pudieron eliminar $count$ URL.",
+    "message": "No se pudieron eliminar $count$ entradas.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -190,7 +184,7 @@
     "message": "Puedes cerrar este menú. La limpieza continuará."
   },
   "jobAllProcessed": {
-    "message": "Se han procesado todas las URL previstas."
+    "message": "Se han procesado todas las entradas de la vista previa."
   },
   "footerNote": {
     "message": "Se conservan las cookies, los datos de los sitios web y los marcadores."

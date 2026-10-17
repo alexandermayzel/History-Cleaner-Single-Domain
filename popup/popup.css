@@ -110,6 +110,8 @@ button:disabled { cursor: default; opacity: 0.55; }
 }
 
 .preview-panel { background: var(--accent-soft); }
+#preview-summary { overflow-wrap: anywhere; }
+#preview-summary strong { font-weight: 700; }
 .notice p + p { margin-top: 6px; }
 .job-target { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
 

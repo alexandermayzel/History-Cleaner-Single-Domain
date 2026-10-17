@@ -1,13 +1,16 @@
 # History Cleaner - Single Domain
 
-A Firefox extension that deletes the browsing history for the **exact host in
-your current tab**. Open its toolbar menu, check the host and URL count in the
+A Firefox extension that deletes the browsing history for the **domain in
+your current tab**. Open its toolbar menu, check the domain and entry count in the
 preview, then confirm deletion. History for other domains and subdomains is kept.
 
 > **License:** MIT. Copyright (c) 2026 Alexander Mayzel. See [LICENSE](LICENSE).
 
-**Version 1.0.0 is being prepared for distribution.** Mozilla review, AMO store
-publication and testing of the signed package are still pending.
+**Version 1.0.1 has been tested locally and is ready for Mozilla submission.**
+It improves wording in all six languages,
+highlights the entry count and domain in a concise preview, and updates the icon
+with a history clock and red trash can. Mozilla review, publication and testing
+of the signed 1.0.1 package are pending.
 
 [Installation](#installation) ·
 [Features](#features) ·
@@ -24,8 +27,8 @@ publication and testing of the signed package are still pending.
 
 **Mozilla Add-ons (planned)** —
 [History Cleaner - Single Domain](https://addons.mozilla.org/en-US/firefox/addon/history-cleaner-single-domain/).
-The listing is not published yet. This URL is provisional until Mozilla confirms
-the slug during submission.
+The listing URL has not yet been confirmed in this repository. Verify it on AMO
+before linking to a download.
 
 **From source** — open `about:debugging#/runtime/this-firefox`, select
 **Load Temporary Add-on…**, and choose `manifest.json` from this directory.
@@ -45,11 +48,11 @@ in its confirmation panel after a regular installation.
 
 ## Features
 
-- **Preview before deletion.** The popup shows the exact host and the number of
-  matching URLs. Creating a preview does not delete anything.
-- **Complete history for that host.** Removes every saved visit to each URL in
+- **Preview before deletion.** One message shows the domain and the number of
+  matching history entries, both in bold. Creating a preview does not delete anything.
+- **Complete history for the previewed pages.** Removes every saved visit to each URL in
   the preview, across HTTP, HTTPS, all paths and all ports.
-- **Progress and results.** Deleted, skipped and failed URLs are counted
+- **Progress and results.** Deleted, skipped and failed entries are counted
   separately. Cleanup continues if the popup closes; reopening it shows the
   available progress or result.
 - **Accessible, multilingual interface.** Supports light and dark appearance,
@@ -74,31 +77,33 @@ No account, external service or dependency installation is needed.
 1. Open the website whose history you want to remove.
 2. Open the extension from Firefox's toolbar. Pin it from the extensions menu
    if you want its icon to stay visible.
-3. Select **Preview** and check the host and URL count.
-4. Select **Delete _n_ URLs** to start cleanup.
-5. Check the result. Skipped URLs are already absent or no longer eligible;
+3. Select **Preview** and check the domain and entry count.
+4. Select **Delete _n_ entries** to start cleanup.
+5. Check the result. Skipped entries are already absent or no longer eligible;
    failed deletions are reported separately.
 
-The active tab and host are checked again before cleanup starts. If either
+The active tab and domain are checked again before cleanup starts. If either
 has changed, reopen the menu and create a new preview.
 
 ---
 
 ## Things to know
 
-### Exact hostname
+### Which domain is included?
 
+The domain shown in the popup is the complete hostname from the page address.
 For `https://www.example.com/article`, the extension selects URLs on
 `www.example.com`, including HTTP, HTTPS, other paths and other ports.
-`example.com`, `shop.example.com` and unrelated websites are separate hosts
-and are kept. International domain names may appear as Punycode in the popup.
+`example.com`, `shop.example.com` and unrelated domains are separate targets,
+so their history is kept. The `www` prefix is part of the name; subdomains are
+not grouped together. International domain names may appear as Punycode in the popup.
 
 Internal Firefox pages such as `about:config`, empty tabs and local files are
 not supported.
 
 ### Profile-wide history
 
-The current tab chooses the host. Deletion affects that host's history
+The current tab chooses the domain. Deletion affects that domain's history
 throughout the **entire Firefox profile**, including visits made in other
 tabs or containers. Firefox does not provide a separate history for each tab.
 
@@ -117,8 +122,9 @@ Create a new preview to include them. Visiting or reloading a page after
 deletion can add it to history again.
 
 A preview is valid for five minutes and can also become unavailable if the
-background process restarts. Counts refer to URLs, not individual visits.
-**Deletion cannot be undone with this extension.**
+background process restarts. Each counted entry represents a distinct URL,
+not an individual visit.
+**Deletion cannot be undone.**
 
 ## Permissions and privacy
 
@@ -168,7 +174,7 @@ Run the automated tests with Node.js 22 or newer:
 node --test tests/*.test.cjs
 ```
 
-Create `history-cleaner-single-domain-1.0.0.zip` with these files and directories:
+Create `history-cleaner-single-domain-1.0.1.zip` with these files and directories:
 
 - `LICENSE`
 - `manifest.json`

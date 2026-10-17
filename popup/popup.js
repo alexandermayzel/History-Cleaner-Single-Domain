@@ -70,14 +70,36 @@ function number(value) {
   return numberFormatter.format(Number(value || 0));
 }
 
-function countMessage(key, count) {
+function pluralMessage(key, count, substitutions) {
   const category = pluralRules.select(count);
   const suffix = category[0].toUpperCase() + category.slice(1);
-  const substitutions = [number(count)];
   return t(`${key}${suffix}`, substitutions) || t(`${key}Other`, substitutions);
 }
 
-function urls(count) {
+function countMessage(key, count, extraSubstitutions = []) {
+  return pluralMessage(key, count, [number(count), ...extraSubstitutions]);
+}
+
+function renderPreviewSummary() {
+  // Mark translated placeholders before inserting values, so digits in a domain
+  // cannot be mistaken for the count. Values are always text, never HTML.
+  const countMarker = "\uFFF0";
+  const domainMarker = "\uFFF1";
+  const message = preview.count === 0
+    ? t("previewEmpty", [domainMarker])
+    : pluralMessage("previewSummary", preview.count, [countMarker, domainMarker]);
+  const parts = message.split(/([\uFFF0\uFFF1])/u).map(part => {
+    if (part !== countMarker && part !== domainMarker) {
+      return part;
+    }
+    const strong = document.createElement("strong");
+    strong.textContent = part === countMarker ? number(preview.count) : preview.hostname;
+    return strong;
+  });
+  elements.previewSummary.replaceChildren(...parts);
+}
+
+function entries(count) {
   return countMessage("urlCount", count);
 }
 
@@ -107,10 +129,11 @@ function render() {
   elements.previewPanel.hidden = !preview;
   elements.cleanButton.disabled = !preview || preview.count === 0 || busy;
   if (preview) {
-    elements.previewSummary.textContent = preview.count === 0
-      ? t("previewEmpty")
-      : countMessage("previewSummary", preview.count);
+    renderPreviewSummary();
     elements.cleanButton.textContent = countMessage("deleteCount", preview.count);
+  } else {
+    elements.previewSummary.textContent = "";
+    elements.cleanButton.textContent = t("deleteButton");
   }
 
   elements.jobPanel.hidden = !job;
@@ -123,7 +146,7 @@ function render() {
     elements.jobProgress.max = Math.max(1, job.total);
     elements.jobProgress.value = job.processed;
     elements.jobSummary.textContent = runningJob
-      ? t("jobProgressSummary", [number(job.processed), urls(job.total), number(job.deleted)])
+      ? t("jobProgressSummary", [number(job.processed), entries(job.total), number(job.deleted)])
       : countMessage("jobDeleted", job.deleted);
 
     const details = [];

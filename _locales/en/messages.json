@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Delete the entire browsing history for the exact host in the current tab, with a preview before deletion."
+    "message": "Delete browsing history for the domain in your current tab, with a preview. Other domains and subdomains are kept."
   },
   "addonVersion": {
     "message": "Version $VERSION$",
-    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+    "placeholders": { "version": { "content": "$1", "example": "1.0.1" } }
   },
   "uiLanguage": {
     "message": "en",
@@ -14,7 +14,7 @@
     "message": "Clean this website's history"
   },
   "currentHost": {
-    "message": "Current host"
+    "message": "Current domain"
   },
   "hostLoading": {
     "message": "Loading …"
@@ -23,10 +23,10 @@
     "message": "No supported website"
   },
   "hostScope": {
-    "message": "Includes HTTP and HTTPS, all paths and ports on this host. Other domains and subdomains are kept."
+    "message": "Includes HTTP and HTTPS, all paths and ports on this domain. History for other domains and subdomains is kept."
   },
   "deleteScope": {
-    "message": "The entire browsing history for the displayed host will be deleted."
+    "message": "Delete the browsing history for the domain shown above."
   },
   "previewButton": {
     "message": "Preview"
@@ -38,36 +38,40 @@
     "message": "Preview"
   },
   "previewEmpty": {
-    "message": "No matching URLs found in your history."
+    "message": "No history entries found for “$domain$”.",
+    "placeholders": { "domain": { "content": "$1", "example": "www.example.com" } }
   },
   "previewSummaryOne": {
-    "message": "$count$ URL can be deleted.",
-    "placeholders": { "count": { "content": "$1", "example": "1" } }
+    "message": "$count$ entry for “$domain$” will be deleted. This cannot be undone.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "previewSummaryOther": {
-    "message": "$count$ URLs can be deleted.",
-    "placeholders": { "count": { "content": "$1", "example": "1,234" } }
-  },
-  "deleteNote": {
-    "message": "Deleting removes all visits to these URLs from your history and cannot be undone here."
+    "message": "$count$ entries for “$domain$” will be deleted. This cannot be undone.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1,234" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "deleteButton": {
     "message": "Delete"
   },
   "deleteCountOne": {
-    "message": "Delete $count$ URL",
+    "message": "Delete $count$ entry",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "deleteCountOther": {
-    "message": "Delete $count$ URLs",
+    "message": "Delete $count$ entries",
     "placeholders": { "count": { "content": "$1", "example": "1,234" } }
   },
   "urlCountOne": {
-    "message": "$count$ URL",
+    "message": "$count$ entry",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "urlCountOther": {
-    "message": "$count$ URLs",
+    "message": "$count$ entries",
     "placeholders": { "count": { "content": "$1", "example": "1,234" } }
   },
   "jobHeading": {
@@ -89,39 +93,39 @@
     "message": "$processed$ of $total$ checked · $deleted$ deleted.",
     "placeholders": {
       "processed": { "content": "$1", "example": "100" },
-      "total": { "content": "$2", "example": "1,234 URLs" },
+      "total": { "content": "$2", "example": "1,234 entries" },
       "deleted": { "content": "$3", "example": "99" }
     }
   },
   "jobDeletedOne": {
-    "message": "$count$ URL deleted.",
+    "message": "$count$ entry deleted.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobDeletedOther": {
-    "message": "$count$ URLs deleted.",
+    "message": "$count$ entries deleted.",
     "placeholders": { "count": { "content": "$1", "example": "1,234" } }
   },
   "jobSkippedOne": {
-    "message": "$count$ URL skipped: no longer present or not eligible for deletion.",
+    "message": "$count$ entry skipped: no longer present or not eligible for deletion.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobSkippedOther": {
-    "message": "$count$ URLs skipped: no longer present or not eligible for deletion.",
+    "message": "$count$ entries skipped: no longer present or not eligible for deletion.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobFailedOne": {
-    "message": "$count$ URL could not be deleted.",
+    "message": "$count$ entry could not be deleted.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobFailedOther": {
-    "message": "$count$ URLs could not be deleted.",
+    "message": "$count$ entries could not be deleted.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobMayClose": {
     "message": "You can close this menu. Cleanup will continue."
   },
   "jobAllProcessed": {
-    "message": "All selected URLs have been processed."
+    "message": "All previewed entries have been processed."
   },
   "footerNote": {
     "message": "Cookies, website data and bookmarks are kept."

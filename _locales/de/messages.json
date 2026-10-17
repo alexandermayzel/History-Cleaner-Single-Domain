@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Löscht den gesamten Verlauf für den exakten Host im aktuellen Tab, mit Vorschau vor dem Löschen."
+    "message": "Löscht den Verlauf der Domain im aktuellen Tab, mit Vorschau. Andere Domains und Subdomains bleiben erhalten."
   },
   "addonVersion": {
     "message": "Version $VERSION$",
-    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+    "placeholders": { "version": { "content": "$1", "example": "1.0.1" } }
   },
   "uiLanguage": {
     "message": "de",
@@ -14,7 +14,7 @@
     "message": "Verlauf dieser Website bereinigen"
   },
   "currentHost": {
-    "message": "Aktueller Host"
+    "message": "Aktuelle Domain"
   },
   "hostLoading": {
     "message": "Wird ermittelt …"
@@ -23,51 +23,55 @@
     "message": "Keine unterstützte Website"
   },
   "hostScope": {
-    "message": "Umfasst HTTP und HTTPS, alle Pfade und Ports dieses Hosts. Andere Domains und Subdomains bleiben erhalten."
+    "message": "Umfasst HTTP und HTTPS, alle Pfade und Ports dieser Domain. Der Verlauf anderer Domains und Subdomains bleibt erhalten."
   },
   "deleteScope": {
-    "message": "Der komplette Verlauf des angezeigten Hosts wird gelöscht."
+    "message": "Lösche den Verlauf der oben angezeigten Domain."
   },
   "previewButton": {
-    "message": "Vorschau ermitteln"
+    "message": "Vorschau anzeigen"
   },
   "previewLoading": {
-    "message": "Vorschau wird ermittelt …"
+    "message": "Vorschau wird erstellt …"
   },
   "previewHeading": {
     "message": "Vorschau"
   },
   "previewEmpty": {
-    "message": "Keine passenden URLs im Verlauf gefunden."
+    "message": "Keine Verlaufseinträge für „$domain$“ gefunden.",
+    "placeholders": { "domain": { "content": "$1", "example": "www.example.com" } }
   },
   "previewSummaryOne": {
-    "message": "$count$ URL kann gelöscht werden.",
-    "placeholders": { "count": { "content": "$1", "example": "1" } }
+    "message": "$count$ Eintrag für „$domain$“ wird gelöscht. Das lässt sich nicht rückgängig machen.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "previewSummaryOther": {
-    "message": "$count$ URLs können gelöscht werden.",
-    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
-  },
-  "deleteNote": {
-    "message": "Die Löschung entfernt alle Besuche dieser URLs aus dem Verlauf und lässt sich hier nicht rückgängig machen."
+    "message": "$count$ Einträge für „$domain$“ werden gelöscht. Das lässt sich nicht rückgängig machen.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1.234" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "deleteButton": {
     "message": "Löschen"
   },
   "deleteCountOne": {
-    "message": "$count$ URL löschen",
+    "message": "$count$ Eintrag löschen",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "deleteCountOther": {
-    "message": "$count$ URLs löschen",
+    "message": "$count$ Einträge löschen",
     "placeholders": { "count": { "content": "$1", "example": "1.234" } }
   },
   "urlCountOne": {
-    "message": "$count$ URL",
+    "message": "$count$ Eintrag",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "urlCountOther": {
-    "message": "$count$ URLs",
+    "message": "$count$ Einträge",
     "placeholders": { "count": { "content": "$1", "example": "1.234" } }
   },
   "jobHeading": {
@@ -86,42 +90,42 @@
     "message": "Fortschritt der Bereinigung"
   },
   "jobProgressSummary": {
-    "message": "$processed$ von $total$ geprüft · $deleted$ gelöscht.",
+    "message": "Geprüft: $processed$ / $total$ · Gelöscht: $deleted$.",
     "placeholders": {
       "processed": { "content": "$1", "example": "100" },
-      "total": { "content": "$2", "example": "1.234 URLs" },
+      "total": { "content": "$2", "example": "1.234 Einträge" },
       "deleted": { "content": "$3", "example": "99" }
     }
   },
   "jobDeletedOne": {
-    "message": "$count$ URL gelöscht.",
+    "message": "$count$ Eintrag gelöscht.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobDeletedOther": {
-    "message": "$count$ URLs gelöscht.",
+    "message": "$count$ Einträge gelöscht.",
     "placeholders": { "count": { "content": "$1", "example": "1.234" } }
   },
   "jobSkippedOne": {
-    "message": "$count$ URL übersprungen: nicht mehr vorhanden oder für die Löschung ungeeignet.",
+    "message": "$count$ Eintrag übersprungen: nicht mehr vorhanden oder für die Löschung ungeeignet.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobSkippedOther": {
-    "message": "$count$ URLs übersprungen: nicht mehr vorhanden oder für die Löschung ungeeignet.",
+    "message": "$count$ Einträge übersprungen: nicht mehr vorhanden oder für die Löschung ungeeignet.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobFailedOne": {
-    "message": "$count$ URL konnte nicht gelöscht werden.",
+    "message": "$count$ Eintrag konnte nicht gelöscht werden.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobFailedOther": {
-    "message": "$count$ URLs konnten nicht gelöscht werden.",
+    "message": "$count$ Einträge konnten nicht gelöscht werden.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobMayClose": {
     "message": "Du kannst dieses Menü schließen. Die Bereinigung läuft weiter."
   },
   "jobAllProcessed": {
-    "message": "Alle vorgesehenen URLs wurden bearbeitet."
+    "message": "Alle Einträge aus der Vorschau wurden bearbeitet."
   },
   "footerNote": {
     "message": "Cookies, Website-Daten und Lesezeichen bleiben erhalten."
@@ -136,7 +140,7 @@
     "message": "Eine Bereinigung läuft bereits. Warte bitte, bis sie abgeschlossen ist."
   },
   "errorExpired": {
-    "message": "Diese Vorschau ist abgelaufen. Ermittle vor dem Löschen eine neue Vorschau."
+    "message": "Diese Vorschau ist abgelaufen. Erstelle vor dem Löschen eine neue Vorschau."
   },
   "errorInvalidRequest": {
     "message": "Die Anfrage konnte nicht verarbeitet werden. Öffne das Menü erneut."
@@ -145,7 +149,7 @@
     "message": "Der Verlauf konnte nicht vollständig gelesen werden. Versuche es erneut."
   },
   "errorInterrupted": {
-    "message": "Die Bereinigung wurde unterbrochen. Die Zahlen zeigen den zuletzt bekannten Stand. Ermittle eine neue Vorschau."
+    "message": "Die Bereinigung wurde unterbrochen. Die Zahlen zeigen den zuletzt bekannten Stand. Erstelle eine neue Vorschau."
   },
   "errorInternal": {
     "message": "Die Aktion konnte nicht abgeschlossen werden. Versuche es erneut."

@@ -87,9 +87,14 @@ async function makePopup(locale, browserLanguage = locale.replace("_", "-"), uns
     const node = {
       attributes, dataset, tagName, parent: parents.at(-1), listeners: {},
       hidden: /\shidden(?:\s|>)/.test(tag), disabled: /\sdisabled(?:\s|>)/.test(tag),
-      text: "", writes: [],
-      get textContent() { return this.text; },
-      set textContent(value) { this.text = value; this.writes.push(value); },
+      text: "", writes: [], childNodes: [],
+      get textContent() { return this.text + this.childNodes.map(child => child.textContent).join(""); },
+      set textContent(value) { this.childNodes = []; this.text = value; this.writes.push(value); },
+      replaceChildren(...children) {
+        this.text = "";
+        this.childNodes = children.map(child => typeof child === "string" ? { textContent: child } : child);
+        this.writes.push(this.textContent);
+      },
       setAttribute(name, value) { this.attributes[name] = value; },
       addEventListener(name, listener) { this.listeners[name] = listener; }
     };
@@ -100,6 +105,7 @@ async function makePopup(locale, browserLanguage = locale.replace("_", "-"), uns
     .map(node => [node.attributes.id, node]));
   const document = {
     documentElement: { lang: "en" },
+    createElement: tagName => ({ tagName, textContent: "" }),
     getElementById: id => byId[id],
     querySelectorAll: selector => nodes.filter(node => selector === "[data-i18n]"
       ? node.dataset.i18n : node.dataset.i18nAriaLabel)
@@ -190,10 +196,93 @@ test("all six popup languages localize labels and complete preview/delete withou
     assert.ok(announcement.includes(translated(locale, "jobWithErrors")));
     assert.ok(announcement.includes("example.org"));
     assert.ok(announcement.includes(app.byId["job-summary"].textContent));
-    assert.ok(announcement.includes(translated(locale, "jobSkippedOther", ["2"])));
+    const skippedKey = locale === "ru" ? "jobSkippedFew" : "jobSkippedOther";
+    assert.ok(announcement.includes(translated(locale, skippedKey, ["2"])), locale);
     assert.ok(announcement.includes(translated(locale, "jobFailedOne", ["1"])));
     for (const node of app.nodes) assert.doesNotMatch(node.textContent, /\$[a-z]+\$|undefined/);
   }
+});
+
+test("the combined preview uses its own domain and entry count in every language, including zero", async () => {
+  const domain = "news42.preview.example";
+  for (const locale of locales) {
+    let count = 0;
+    const app = await makePopup(locale, locale.replace("_", "-"), false, {
+      job: runningJob({ id: "previous-job", hostname: "previous.example", status: "completed" }),
+      sendMessage(message) {
+        if (message.type === "preview") return { ok: true, preview: {
+          token: "domain-preview", count, hostname: domain, expiresAt: Date.now() + 60000
+        } };
+      }
+    });
+    const summary = app.byId["preview-summary"];
+    assert.equal(summary.textContent, "", `${locale}: no warning without a preview`);
+    assert.equal(app.byId["clean-button"].attributes["aria-describedby"], "preview-summary");
+    assert.equal(app.byId["hostname"].textContent, "example.org");
+    assert.equal(app.byId["job-target"].textContent, "previous.example");
+    for (count of [0, 1, 2, 5, 21, 42, 1234]) {
+      await app.byId["preview-form"].listeners.submit({ preventDefault() {} });
+      assert.equal(app.byId["preview-panel"].hidden, false);
+      assert.equal(app.byId["clean-button"].disabled, count === 0);
+      assert.equal(summary.textContent.split(domain).length, 2, `${locale}: show the preview domain once`);
+      assert.doesNotMatch(summary.textContent, /example\.org|previous\.example|\$[a-z]+\$|undefined/);
+      const emphasized = summary.childNodes.filter(node => node.tagName === "strong").map(node => node.textContent);
+      if (count === 0) {
+        assert.deepEqual(emphasized, [domain], `${locale}: emphasize only the domain when no entries match`);
+        assert.equal(summary.textContent, translated(locale, "previewEmpty", [domain]));
+        await app.byId["clean-button"].listeners.click();
+        assert.equal(app.messages.filter(message => message.type === "clean").length, 0);
+      } else {
+        const formatted = new Intl.NumberFormat(catalogs[locale].uiLanguage.message).format(count);
+        assert.deepEqual(emphasized.slice().sort(), [formatted, domain].sort(), `${locale}: emphasize the complete count and domain`);
+        assert.ok(summary.textContent.includes(formatted), `${locale}: missing entry count`);
+        assert.ok(app.byId["clean-button"].textContent.includes(formatted));
+        if (locale === "en") {
+          const noun = count === 1 ? "entry" : "entries";
+          assert.equal(summary.textContent, `${formatted} ${noun} for “${domain}” will be deleted. This cannot be undone.`);
+          assert.equal(app.byId["clean-button"].textContent, `Delete ${formatted} ${noun}`);
+        }
+      }
+    }
+    await app.byId["clean-button"].listeners.click();
+    assert.equal(summary.textContent, "", `${locale}: warning must clear when the preview is consumed`);
+    assert.equal(summary.childNodes.length, 0, `${locale}: emphasis must clear with the preview`);
+  }
+});
+
+test("refreshing, failing or expiring a preview clears its domain warning", async () => {
+  const preview = {
+    token: "preview-token", count: 1, hostname: "preview.example", expiresAt: Date.now() + 60000
+  };
+  let previewResponse = { ok: true, preview };
+  const app = await makePopup("en", "en-US", false, {
+    sendMessage(message) {
+      if (message.type === "preview") return previewResponse;
+    }
+  });
+  const note = app.byId["preview-summary"];
+  const submit = () => app.byId["preview-form"].listeners.submit({ preventDefault() {} });
+  await submit();
+  assert.ok(note.textContent.includes(preview.hostname));
+
+  const replacement = deferred();
+  previewResponse = replacement.promise;
+  const refreshing = submit();
+  assert.equal(app.byId["preview-panel"].hidden, true);
+  assert.equal(note.textContent, "", "The old domain must disappear while the new preview is pending");
+  replacement.resolve({ ok: false, error: "READ_FAILED" });
+  await refreshing;
+  assert.equal(note.textContent, "");
+  assert.equal(app.byId["error"].textContent, translated("en", "errorReadFailed"));
+
+  previewResponse = { ok: true, preview: { ...preview, expiresAt: Date.now() - 1 } };
+  await submit();
+  assert.ok(note.textContent.includes(preview.hostname));
+  await app.byId["clean-button"].listeners.click();
+  assert.equal(note.textContent, "", "An expired preview must not leave a domain warning behind");
+  assert.equal(app.byId["preview-panel"].hidden, true);
+  assert.equal(app.byId["error"].textContent, translated("en", "errorExpired"));
+  assert.equal(app.messages.filter(message => message.type === "clean").length, 0);
 });
 
 test("Russian counts use one, few and many across preview, buttons and results", async () => {
@@ -273,9 +362,9 @@ test("the result live region exists before cleanup and announces failures withou
   assert.equal(app.byId["job-summary"].attributes["aria-live"], undefined);
   await app.byId["preview-form"].listeners.submit({ preventDefault() {} });
   await app.byId["clean-button"].listeners.click();
-  assert.match(announcement.textContent, /Cleanup encountered errors/);
-  assert.match(announcement.textContent, /0 URLs deleted/);
-  assert.match(announcement.textContent, /1 URL could not be deleted/);
+  assert.ok(announcement.textContent.includes(translated("en", "jobWithErrors")));
+  assert.ok(announcement.textContent.includes(translated("en", "jobDeletedOther", ["0"])));
+  assert.ok(announcement.textContent.includes(translated("en", "jobFailedOne", ["1"])));
 });
 
 test("controlled polling shows progress once, ignores unchanged counts and announces the complete result", async () => {
@@ -295,7 +384,9 @@ test("controlled polling shows progress once, ignores unchanged counts and annou
   assert.equal(app.messages.filter(message => message.type === "state").length, 0);
   await app.clock.advance(1);
   assert.equal(app.byId["job-progress"].value, 4);
-  assert.match(app.byId["job-announcement"].textContent, /4 of 21 URLs checked · 3 deleted/);
+  assert.ok(app.byId["job-announcement"].textContent.includes(translated("en", "jobProgressSummary", [
+    "4", translated("en", "urlCountOther", ["21"]), "3"
+  ])));
   const progressWrites = app.byId["job-announcement"].writes.length;
   await app.clock.advance(500);
   assert.equal(app.byId["job-announcement"].writes.length, progressWrites);
@@ -307,10 +398,10 @@ test("controlled polling shows progress once, ignores unchanged counts and annou
   assert.equal(app.byId["preview-button"].disabled, false);
   assert.equal(app.clock.timers.size, 0);
   const result = app.byId["job-announcement"].textContent;
-  assert.match(result, /Cleanup encountered errors/);
-  assert.match(result, /18 URLs deleted/);
-  assert.match(result, /2 URLs skipped/);
-  assert.match(result, /1 URL could not be deleted/);
+  assert.ok(result.includes(translated("en", "jobWithErrors")));
+  assert.ok(result.includes(translated("en", "jobDeletedOther", ["18"])));
+  assert.ok(result.includes(translated("en", "jobSkippedOther", ["2"])));
+  assert.ok(result.includes(translated("en", "jobFailedOne", ["1"])));
   assert.equal(app.byId["job-announcement"].writes.filter(value => value === result).length, 1);
 });
 
@@ -364,7 +455,8 @@ test("a reopened job resumes polling after a temporary status error and stops on
   await app.clock.advance(500);
   assert.equal(reads, 3);
   assert.equal(app.byId["preview-button"].disabled, false);
-  assert.match(app.byId["job-announcement"].textContent, /Cleanup complete.*21 URLs deleted/);
+  assert.ok(app.byId["job-announcement"].textContent.includes(translated("en", "jobCompleted")));
+  assert.ok(app.byId["job-announcement"].textContent.includes(translated("en", "jobDeletedOther", ["21"])));
   assert.equal(app.clock.timers.size, 0);
 });
 
@@ -375,7 +467,7 @@ test("a missing background job announces interruption and permits a new preview"
   await app.clock.advance(500);
   assert.equal(app.byId["job-heading"].textContent, translated("en", "jobWithErrors"));
   assert.ok(app.byId["job-announcement"].textContent.includes(translated("en", "errorInterrupted")));
-  assert.match(app.byId["job-announcement"].textContent, /3 URLs deleted/);
+  assert.ok(app.byId["job-announcement"].textContent.includes(translated("en", "jobDeletedOther", ["3"])));
   assert.equal(app.byId["preview-button"].disabled, false);
   assert.equal(app.clock.timers.size, 0);
   await app.byId["preview-form"].listeners.submit({ preventDefault() {} });

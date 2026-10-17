@@ -19,25 +19,24 @@
       </header>
 
       <section class="site-card" aria-labelledby="site-label">
-        <h2 id="site-label" class="eyebrow" data-i18n="currentHost">Current host</h2>
+        <h2 id="site-label" class="eyebrow" data-i18n="currentHost">Current domain</h2>
         <p id="hostname" class="hostname" data-i18n="hostLoading">Loading …</p>
-        <p class="hint" data-i18n="hostScope">Includes HTTP and HTTPS, all paths and ports on this host. Other domains and subdomains are kept.</p>
+        <p class="hint" data-i18n="hostScope">Includes HTTP and HTTPS, all paths and ports on this domain. History for other domains and subdomains is kept.</p>
       </section>
 
       <form id="preview-form">
-        <p data-i18n="deleteScope">The entire browsing history for the displayed host will be deleted.</p>
+        <p data-i18n="deleteScope">Delete the browsing history for the domain shown above.</p>
         <button id="preview-button" class="button button-primary" type="submit" data-i18n="previewButton" disabled>Preview</button>
       </form>
 
       <section id="preview-panel" class="notice preview-panel" aria-labelledby="preview-heading" hidden>
-        <h2 id="preview-heading" data-i18n="previewHeading">Preview</h2>
+        <h2 id="preview-heading" class="eyebrow" data-i18n="previewHeading">Preview</h2>
         <p id="preview-summary" role="status" aria-live="polite" aria-atomic="true"></p>
-        <p id="delete-note" class="hint" data-i18n="deleteNote">Deleting removes all visits to these URLs from your history and cannot be undone here.</p>
-        <button id="clean-button" class="button button-danger" type="button" aria-describedby="delete-note" data-i18n="deleteButton" disabled>Delete</button>
+        <button id="clean-button" class="button button-danger" type="button" aria-describedby="preview-summary" data-i18n="deleteButton" disabled>Delete</button>
       </section>
 
       <section id="job-panel" class="notice job-panel" aria-labelledby="job-heading" hidden>
-        <h2 id="job-heading" data-i18n="jobHeading">Cleanup</h2>
+        <h2 id="job-heading" class="eyebrow" data-i18n="jobHeading">Cleanup</h2>
         <p id="job-target" class="job-target"></p>
         <progress id="job-progress" max="1" value="0" aria-label="Cleanup progress" data-i18n-aria-label="jobProgressLabel" hidden></progress>
         <p id="job-summary"></p>

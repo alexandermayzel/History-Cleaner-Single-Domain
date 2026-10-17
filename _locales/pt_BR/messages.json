@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Exclui todo o histórico de navegação do host exato da aba atual, com prévia antes da exclusão."
+    "message": "Exclui o histórico do domínio da aba atual, com prévia. Outros domínios e subdomínios são preservados."
   },
   "addonVersion": {
     "message": "Versão $VERSION$",
-    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+    "placeholders": { "version": { "content": "$1", "example": "1.0.1" } }
   },
   "uiLanguage": {
     "message": "pt-BR",
@@ -14,7 +14,7 @@
     "message": "Limpar o histórico deste site"
   },
   "currentHost": {
-    "message": "Host atual"
+    "message": "Domínio atual"
   },
   "hostLoading": {
     "message": "Carregando …"
@@ -23,10 +23,10 @@
     "message": "Nenhum site compatível"
   },
   "hostScope": {
-    "message": "Inclui HTTP e HTTPS, todos os caminhos e portas deste host. Outros domínios e subdomínios são preservados."
+    "message": "Inclui HTTP e HTTPS, todos os caminhos e portas deste domínio. O histórico de outros domínios e subdomínios é preservado."
   },
   "deleteScope": {
-    "message": "Todo o histórico de navegação do host exibido será excluído."
+    "message": "Exclua o histórico de navegação do domínio mostrado acima."
   },
   "previewButton": {
     "message": "Gerar prévia"
@@ -38,36 +38,40 @@
     "message": "Prévia"
   },
   "previewEmpty": {
-    "message": "Nenhuma URL correspondente foi encontrada no histórico."
+    "message": "Nenhum registro encontrado no histórico para “$domain$”.",
+    "placeholders": { "domain": { "content": "$1", "example": "www.example.com" } }
   },
   "previewSummaryOne": {
-    "message": "$count$ URL pode ser excluída.",
-    "placeholders": { "count": { "content": "$1", "example": "1" } }
+    "message": "$count$ registro de “$domain$” será excluído. Esta ação não pode ser desfeita.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "previewSummaryOther": {
-    "message": "$count$ URLs podem ser excluídas.",
-    "placeholders": { "count": { "content": "$1", "example": "1.234" } }
-  },
-  "deleteNote": {
-    "message": "A exclusão remove todas as visitas a essas URLs do histórico e não pode ser desfeita aqui."
+    "message": "$count$ registros de “$domain$” serão excluídos. Esta ação não pode ser desfeita.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1.234" },
+      "domain": { "content": "$2", "example": "www.example.com" }
+    }
   },
   "deleteButton": {
     "message": "Excluir"
   },
   "deleteCountOne": {
-    "message": "Excluir $count$ URL",
+    "message": "Excluir $count$ registro",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "deleteCountOther": {
-    "message": "Excluir $count$ URLs",
+    "message": "Excluir $count$ registros",
     "placeholders": { "count": { "content": "$1", "example": "1.234" } }
   },
   "urlCountOne": {
-    "message": "$count$ URL",
+    "message": "$count$ registro",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "urlCountOther": {
-    "message": "$count$ URLs",
+    "message": "$count$ registros",
     "placeholders": { "count": { "content": "$1", "example": "1.234" } }
   },
   "jobHeading": {
@@ -86,42 +90,42 @@
     "message": "Progresso da limpeza"
   },
   "jobProgressSummary": {
-    "message": "Verificadas: $processed$ de $total$ · Excluídas: $deleted$.",
+    "message": "Verificados: $processed$ de $total$ · Excluídos: $deleted$.",
     "placeholders": {
       "processed": { "content": "$1", "example": "100" },
-      "total": { "content": "$2", "example": "1.234 URLs" },
+      "total": { "content": "$2", "example": "1.234 registros" },
       "deleted": { "content": "$3", "example": "99" }
     }
   },
   "jobDeletedOne": {
-    "message": "$count$ URL excluída.",
+    "message": "$count$ registro excluído.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobDeletedOther": {
-    "message": "$count$ URLs excluídas.",
+    "message": "$count$ registros excluídos.",
     "placeholders": { "count": { "content": "$1", "example": "1.234" } }
   },
   "jobSkippedOne": {
-    "message": "$count$ URL ignorada: não está mais no histórico ou não atende aos critérios de exclusão.",
+    "message": "$count$ registro ignorado: não está mais no histórico ou não atende aos critérios de exclusão.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobSkippedOther": {
-    "message": "$count$ URLs ignoradas: não estão mais no histórico ou não atendem aos critérios de exclusão.",
+    "message": "$count$ registros ignorados: não estão mais no histórico ou não atendem aos critérios de exclusão.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobFailedOne": {
-    "message": "Não foi possível excluir $count$ URL.",
+    "message": "Não foi possível excluir $count$ registro.",
     "placeholders": { "count": { "content": "$1", "example": "1" } }
   },
   "jobFailedOther": {
-    "message": "Não foi possível excluir $count$ URLs.",
+    "message": "Não foi possível excluir $count$ registros.",
     "placeholders": { "count": { "content": "$1", "example": "2" } }
   },
   "jobMayClose": {
     "message": "Você pode fechar este menu. A limpeza continuará."
   },
   "jobAllProcessed": {
-    "message": "Todas as URLs selecionadas foram processadas."
+    "message": "Todos os registros da prévia foram processados."
   },
   "footerNote": {
     "message": "Cookies, dados dos sites e favoritos são preservados."

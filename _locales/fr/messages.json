@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Supprime tout l’historique de l’hôte exact de l’onglet actif, avec un aperçu avant la suppression."
+    "message": "Supprime l’historique du domaine de l’onglet actif, avec aperçu. Les autres domaines et sous-domaines sont conservés."
   },
   "addonVersion": {
     "message": "Version $VERSION$",
-    "placeholders": { "version": { "content": "$1", "example": "1.0.0" } }
+    "placeholders": { "version": { "content": "$1", "example": "1.0.1" } }
   },
   "uiLanguage": {
     "message": "fr",
@@ -14,7 +14,7 @@
     "message": "Nettoyer l’historique de ce site"
   },
   "currentHost": {
-    "message": "Hôte actuel"
+    "message": "Domaine actuel"
   },
   "hostLoading": {
     "message": "Chargement …"
@@ -23,10 +23,10 @@
     "message": "Aucun site web compatible"
   },
   "hostScope": {
-    "message": "Inclut HTTP et HTTPS, tous les chemins et tous les ports de cet hôte. L’historique des autres domaines et sous-domaines est conservé."
+    "message": "Inclut HTTP et HTTPS, tous les chemins et tous les ports de ce domaine. L’historique des autres domaines et sous-domaines est conservé."
   },
   "deleteScope": {
-    "message": "Tout l’historique de navigation de l’hôte affiché sera supprimé."
+    "message": "Supprimez l’historique de navigation du domaine affiché ci-dessus."
   },
   "previewButton": {
     "message": "Aperçu"
@@ -38,34 +38,28 @@
     "message": "Aperçu"
   },
   "previewEmpty": {
-    "message": "Aucune URL correspondante dans l’historique."
+    "message": "Aucune entrée dans l’historique pour « $domain$ ».",
+    "placeholders": { "domain": { "content": "$1", "example": "www.example.com" } }
   },
   "previewSummaryOne": {
-    "message": "$count$ URL peut être supprimée.",
+    "message": "$count$ entrée pour « $domain$ » sera supprimée. Cette action est irréversible.",
     "placeholders": {
-      "count": {
-        "content": "$1",
-        "example": "1"
-      }
+      "count": { "content": "$1", "example": "1" },
+      "domain": { "content": "$2", "example": "www.example.com" }
     }
   },
   "previewSummaryOther": {
-    "message": "$count$ URL peuvent être supprimées.",
+    "message": "$count$ entrées pour « $domain$ » seront supprimées. Cette action est irréversible.",
     "placeholders": {
-      "count": {
-        "content": "$1",
-        "example": "1 234"
-      }
+      "count": { "content": "$1", "example": "1 234" },
+      "domain": { "content": "$2", "example": "www.example.com" }
     }
-  },
-  "deleteNote": {
-    "message": "La suppression efface de l’historique toutes les visites à ces URL et ne peut pas être annulée ici."
   },
   "deleteButton": {
     "message": "Supprimer"
   },
   "deleteCountOne": {
-    "message": "Supprimer $count$ URL",
+    "message": "Supprimer $count$ entrée",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -74,7 +68,7 @@
     }
   },
   "deleteCountOther": {
-    "message": "Supprimer $count$ URL",
+    "message": "Supprimer $count$ entrées",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -83,7 +77,7 @@
     }
   },
   "urlCountOne": {
-    "message": "$count$ URL",
+    "message": "$count$ entrée",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -92,7 +86,7 @@
     }
   },
   "urlCountOther": {
-    "message": "$count$ URL",
+    "message": "$count$ entrées",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -116,7 +110,7 @@
     "message": "Progression du nettoyage"
   },
   "jobProgressSummary": {
-    "message": "URL vérifiées : $processed$ sur $total$ · Supprimées : $deleted$.",
+    "message": "Vérifiées : $processed$ sur $total$ · Supprimées : $deleted$.",
     "placeholders": {
       "processed": {
         "content": "$1",
@@ -124,7 +118,7 @@
       },
       "total": {
         "content": "$2",
-        "example": "1 234 URL"
+        "example": "1 234 entrées"
       },
       "deleted": {
         "content": "$3",
@@ -133,7 +127,7 @@
     }
   },
   "jobDeletedOne": {
-    "message": "$count$ URL supprimée.",
+    "message": "$count$ entrée supprimée.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -142,7 +136,7 @@
     }
   },
   "jobDeletedOther": {
-    "message": "$count$ URL supprimées.",
+    "message": "$count$ entrées supprimées.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -151,7 +145,7 @@
     }
   },
   "jobSkippedOne": {
-    "message": "$count$ URL ignorée : elle n’existe plus ou ne remplit pas les conditions de suppression.",
+    "message": "$count$ entrée ignorée : elle n’existe plus ou ne remplit pas les conditions de suppression.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -160,7 +154,7 @@
     }
   },
   "jobSkippedOther": {
-    "message": "$count$ URL ignorées : elles n’existent plus ou ne remplissent pas les conditions de suppression.",
+    "message": "$count$ entrées ignorées : elles n’existent plus ou ne remplissent pas les conditions de suppression.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -169,7 +163,7 @@
     }
   },
   "jobFailedOne": {
-    "message": "$count$ URL n’a pas pu être supprimée.",
+    "message": "$count$ entrée n’a pas pu être supprimée.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -178,7 +172,7 @@
     }
   },
   "jobFailedOther": {
-    "message": "$count$ URL n’ont pas pu être supprimées.",
+    "message": "$count$ entrées n’ont pas pu être supprimées.",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -190,7 +184,7 @@
     "message": "Vous pouvez fermer ce menu. Le nettoyage continue."
   },
   "jobAllProcessed": {
-    "message": "Toutes les URL prévues ont été traitées."
+    "message": "Toutes les entrées de l’aperçu ont été traitées."
   },
   "footerNote": {
     "message": "Les cookies, les données des sites et les marque-pages sont conservés."

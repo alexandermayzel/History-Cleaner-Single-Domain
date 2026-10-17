@@ -1,12 +1,11 @@
-# AMO submission — version 1.0.0 (AMO pending)
+# AMO submission — version 1.0.1 (planned)
 
-Working document for the first submission of **History Cleaner - Single Domain** at
-[Submit a New Add-on](https://addons.mozilla.org/developers/addon/submit/).
-Not part of the extension package. Mozilla submission, review, signing and AMO
-publication of version 1.0.0 remain pending.
+Working document for the upcoming **History Cleaner - Single Domain** update.
+Not part of the extension package. Version 1.0.1 has passed the owner's local test;
+Mozilla submission, review, signing and publication of 1.0.1 are pending.
 
 For Mozilla submission, use the local
-[history-cleaner-single-domain-1.0.0.zip](../history-cleaner-single-domain-1.0.0.zip)
+[history-cleaner-single-domain-1.0.1.zip](../history-cleaner-single-domain-1.0.1.zip)
 after the pre-upload checks below pass. The ZIP is unsigned; Mozilla signs the
 submitted extension. No public GitHub release or download URL is assumed here.
 The package is created directly in the parent `GIT` folder for the owner's manual
@@ -24,7 +23,7 @@ this version's release notes and reviewer notes.
 | Distribution | On this site / Listed on AMO |
 | Name | History Cleaner - Single Domain |
 | Requested AMO URL slug | `history-cleaner-single-domain` — confirm during submission |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Default listing language | English (US); add German, Spanish, French, Portuguese (Brazil) and Russian |
 | Compatibility | Firefox Desktop 142.0 and later; do not select Android |
 | License | MIT License; copyright 2026 Alexander Mayzel |
@@ -64,31 +63,17 @@ are available in all six languages; use English release notes for other locales.
 ### English
 
 ```text
-Initial release
+Clearer wording and a more readable preview in all six languages: one message highlights the entry count and selected domain, with consistent section headings. The interface uses “domain” and “entries” consistently. Deletion still applies only to the exact domain shown; other domains and subdomains are kept.
 
-• Clean the history of the exact host in the active tab from the toolbar. All visits to previewed URLs are removed across HTTP, HTTPS, paths and ports; other domains and subdomains are kept.
-• Review the host and matching URL count before confirming deletion, then follow progress and the counts of deleted, skipped and failed URLs.
-• Use German, English, Spanish, French, Brazilian Portuguese or Russian, selected automatically with English as the fallback. Includes light and dark appearance, keyboard controls and screen-reader labels.
-• Process history locally, without data transmission, telemetry or persistent copies.
-
-Cleanup applies throughout the Firefox profile, including other tabs and containers. There is no age filter or undo. New URLs first visited after the preview are excluded. Cookies, site storage, passwords, bookmarks and downloaded files are kept.
-
-Requires Firefox Desktop 142 or later. MIT License.
+Updated extension icon with a history clock and red trash can.
 ```
 
 ### Deutsch
 
 ```text
-Erste Veröffentlichung
+Verständlichere Texte und eine übersichtlichere Vorschau in allen sechs Sprachen: Eine gemeinsame Meldung hebt Anzahl und ausgewählte Domain hervor, ergänzt durch einheitliche Überschriften. Die Oberfläche verwendet einheitlich „Domain“ und „Einträge“. Die Löschung bleibt auf die exakt angezeigte Domain begrenzt; andere Domains und Subdomains bleiben erhalten.
 
-• Den Verlauf des exakten Hosts im aktiven Tab über die Symbolleiste bereinigen. Alle Besuche der Vorschau-URLs werden über HTTP, HTTPS, Pfade und Ports hinweg entfernt; andere Domains und Subdomains bleiben erhalten.
-• Host und Anzahl passender URLs vor dem Bestätigen der Löschung prüfen. Anschließend Fortschritt und Anzahlen gelöschter, übersprungener und fehlgeschlagener URLs verfolgen.
-• Deutsch, Englisch, Spanisch, Französisch, Portugiesisch (Brasilien) oder Russisch nutzen, mit automatischer Sprachwahl und Englisch als Fallback. Mit heller und dunkler Darstellung, Tastaturbedienung und Beschriftungen für Screenreader.
-• Den Verlauf ausschließlich lokal verarbeiten, ohne Datenübertragung, Telemetrie oder dauerhafte Kopien.
-
-Die Bereinigung gilt im gesamten Firefox-Profil, auch für andere Tabs und Container. Es gibt keinen Altersfilter und keine Rückgängig-Funktion. Neue URLs, die erst nach der Vorschau besucht werden, sind ausgeschlossen. Cookies, Website-Speicher, Passwörter, Lesezeichen und heruntergeladene Dateien bleiben erhalten.
-
-Benötigt Firefox Desktop ab Version 142. MIT-Lizenz.
+Überarbeitetes Erweiterungssymbol mit Uhr und rotem Papierkorb.
 ```
 
 ## Notes to reviewer
@@ -99,7 +84,7 @@ English, one field, plain text; kept below 3,000 characters.
 Deletes history only for the exact hostname selected by the active HTTP(S) tab. A toolbar preview and a separate delete button are required.
 
 RELEASE
-First release, 1.0.0. Firefox Desktop 142+ only; Android is not supported. UI: German, English, Spanish, French, Brazilian Portuguese and Russian; English fallback. No account, external service or special hardware is required.
+1.0.1 clarifies all six translations, emphasizes the entry count and domain in a combined preview, and adds a history clock/red trash can icon. Deletion scope is unchanged. Firefox Desktop 142+ only; no Android. English fallback. No account, external service or special hardware is required.
 
 SOURCE
 ZIP contains original readable source, archived unchanged. No compilation, bundling, minification or other build step. No third-party libraries, remote code, eval() or new Function(). MIT License, copyright 2026 Alexander Mayzel.
@@ -109,16 +94,16 @@ activeTab: obtains the active tab URL after toolbar interaction, without a tabs 
 history: searches local history, checks visits and calls history.deleteUrl for matching URLs. This permission is browser-wide; the extension enforces the hostname restriction itself.
 
 SCOPE
-Exact parsed URL.hostname, HTTP/HTTPS only, all paths and ports. example.org, www.example.org and other subdomains are separate targets. Search matches from titles, paths or unrelated hosts are filtered out. The search limit increases until results are complete.
+“Domain” in the UI means exact parsed URL.hostname: HTTP/HTTPS only, all paths and ports. example.org, www.example.org and other subdomains are separate targets. Search matches from titles, paths or unrelated hosts are filtered out. The search limit increases until results are complete.
 Deletion removes all visits to each previewed URL throughout the profile, including visits from other tabs/containers. No age filter, history reconstruction or deleteAll/deleteRange calls. New URLs visited after the preview are excluded. Reloading a page can add history again. No undo. Cookies, site storage, bookmarks, passwords and downloaded files are untouched.
 
-Only this extension's popup may request deletion. Preview tokens are single-use, expire after five minutes, and are held in memory. Active tab ID and hostname are checked again before deletion. Concurrent jobs are rejected. Progress counts URLs, not visits; failed and skipped URLs are reported separately.
+Only this extension's popup may request deletion. Preview tokens are single-use, expire after five minutes, and are held in memory. Active tab ID and hostname are checked again before deletion. Concurrent jobs are rejected. Entries count distinct URLs, not visits; failures and skips are reported separately.
 
 DATA
 Manifest data_collection_permissions.required is ["none"]. No network requests, telemetry, content scripts, persistent storage or third-party recipients. Preview data and the last job result exist only in background memory and may disappear when the background restarts.
 
 TESTING
-40 automated tests passed: 27 core/background and 13 popup tests. Covers long hosts, host isolation, status polling, live-region results, six languages, plural forms and number formatting. An earlier manual Firefox check was reported successful on 2026-10-17; detailed coverage was not recorded. Screen-reader and signed-package checks are pending.
+42 automated tests passed on 2026-10-17 (27 core/background, 15 popup), covering all six locales, preview emphasis, stale/empty previews, hostname isolation, polling and accessibility. Owner confirmed local 1.0.1 testing passed on 2026-10-17; detailed coverage and signed-package tests are not documented.
 Use a disposable Firefox profile with history enabled. Visit multiple paths on example.org and a different host (e.g. example.net). On example.org, open the toolbar popup, preview and delete. Check that all previewed example.org URLs are removed and example.net is retained. Repeat with a subdomain to check exact-host isolation, and with each UI language. On about:config deletion must be unavailable. No login is needed.
 ```
 
@@ -126,25 +111,24 @@ Use a disposable Firefox profile with history enabled. Visit multiple paths on e
 
 ### AMO validation status
 
-On 2026-10-17, the owner reported an Android compatibility warning for the
-previous package with a minimum Firefox version of 140. The current package
+During preparation of 1.0.0, the owner reported an Android compatibility warning
+for a package with a minimum Firefox version of 140. The current manifest
 sets `strict_min_version` to `142.0`, meeting the version required by that check
 for `data_collection_permissions`. It still targets Firefox Desktop only:
 `gecko_android` is absent and `required: ["none"]` is unchanged.
 
-The rebuilt ZIP has not yet been revalidated by AMO. Upload it and check the
-complete validation result before completing the submission. The earlier warning
-does not describe the current package's minimum version.
+AMO validation of 1.0.1 is pending. Check the complete validation result when this
+version is submitted. The earlier warning does not describe its minimum version.
 
 References: [Mozilla data-consent documentation](https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/)
 and [MDN platform settings](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#firefox_gecko_properties).
 
 ### Prepared archive
 
-Prepared package: **19,451 bytes**, 14 files, SHA-256:
+Prepared package: **19,910 bytes**, 14 files, SHA-256:
 
 ```text
-89C02AEC2E0A0DE95364C29AA0ADF1B1D2E975C43E0E6E816C6E9CF4F16F57E4
+784D8E219DB123C40B591F5C86C594CC139239ED3CDBFABCB6A243DABDDC5063
 ```
 
 `manifest.json` is the only source of the extension version. To create the upload
@@ -185,22 +169,27 @@ Run the automated tests from the project folder with Node.js 22 or later:
 node --test tests/*.test.cjs
 ```
 
-## Checklist — 1.0.0 (local preparation)
+## Checklist — 1.0.1 (local preparation)
 
-Preparation completed locally:
+Verify against the final 1.0.1 sources and package:
 
-- [x] Manifest version is `1.0.0`; ZIP filename and displayed name are correct.
+- [x] Manifest version is `1.0.1`; ZIP filename and displayed name are correct.
 - [x] MIT license with copyright 2026 Alexander Mayzel is included in the ZIP.
 - [x] All six locale files are included; English is the fallback.
-- [x] 40 tests passed: 27 core/background and 13 popup tests.
+- [x] 42 tests passed on 2026-10-17: 27 core/background and 15 popup tests.
+- [x] Alexander Mayzel confirmed successful local testing of 1.0.1 on 2026-10-17.
 - [x] Both release-note blocks and reviewer notes remain below 3,000 characters.
 - [x] All six listing summaries match their locale messages and are below 250 characters.
 - [x] ZIP contents match the source files and exclude documentation and test artifacts.
+- [x] The approved clock-and-trash icon is used in the manifest and popup;
+      the matching AMO PNG is 128 × 128 pixels with transparency.
 - [x] Data declaration is `none`; only `activeTab` and `history` are requested.
-- [x] Repository and support URLs have been verified.
-- [x] An earlier manual Firefox check was reported successful by Alexander Mayzel
-      on 2026-10-17. Browser version, platform and individual language coverage
-      were not recorded; this does not confirm functional testing of later UI changes.
+- [ ] Confirm repository, support and AMO URLs before submission.
+
+Alexander Mayzel reported successful local testing of the final 1.0.1 on
+2026-10-17. Browser version and individual platform, language and accessibility
+coverage were not specified. This confirms the owner's local test, not testing
+of a Mozilla-signed package.
 
 Before submitting:
 
@@ -212,9 +201,8 @@ Before submitting:
 - [ ] Check screen-reader announcements for progress, failed/skipped URLs and
       interrupted cleanup.
 - [ ] Check the minimum supported Firefox version and the intended desktop platforms.
-- [ ] Upload the rebuilt ZIP with Firefox minimum version 142.0 and review the
-      complete AMO validation result, including the earlier Android warning.
-      Revalidation is pending; `web-ext lint` has not been run locally.
+- [ ] Upload the 1.0.1 ZIP and review the complete AMO validation result.
+      Validation is pending; `web-ext lint` has not been run locally.
 - [ ] Fill in all six listing languages from the external description file; choose categories
       and optionally add screenshots without private browsing data.
 - [ ] Paste release notes for English and German, and the English reviewer notes.
@@ -230,20 +218,21 @@ After Mozilla signs the package:
       checks. Update this document with actual results before treating them as passed.
 
 Signed installation remains open. Automated tests use simulated browser APIs;
-the earlier manual check does not document comprehensive functional coverage.
+the owner's local test does not document comprehensive platform/language coverage.
 
 The upload sequence follows Mozilla's
 [submission guide](https://extensionworkshop.com/documentation/publish/submitting-an-add-on/).
 
 ## GitHub release status
 
-The GitHub release remains a draft while Mozilla review, signing and AMO
-publication are pending. The owner uploads release assets manually.
+The owner authorized the GitHub handoff of 1.0.1 after successful local testing.
+Prepared release metadata is draft-only. GitHub publication waits for Mozilla
+review and the AMO listing; the owner uploads release assets and publishes manually.
 
-- Release title: `v1.0.0`.
-- Release tag: `v1.0.0`; verify that it refers to the intended source.
+- Planned release title: `v1.0.1`.
+- Planned release tag: `v1.0.1`; verify that it refers to the intended source.
 - Release notes: English only, taken from [CHANGELOG.md](CHANGELOG.md).
-- Package filename: `history-cleaner-single-domain-1.0.0.zip`; leave the asset
+- Package filename: `history-cleaner-single-domain-1.0.1.zip`; leave the asset
   label empty so GitHub displays the filename without an alternate label.
 - The owner publishes the release manually only after **both** a Mozilla-reviewed
   file is available and the add-on is live in the AMO store. Availability of this
